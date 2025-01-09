@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tests</title>
-
+    
     <link rel="stylesheet" href="tests.css">
-
-    <!--
     <link rel="stylesheet" href="time/time.css">
--->
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     
@@ -33,47 +32,63 @@
 
         <p>Każdy test składa się z 40 pytań. Aby zdać trzeba uzyskać 50% poprawnych odpowiedzi. Czas na wykonanie testu to 60 min.</p>
 
-        <!-- box section -->
+        <!-- box section top 
         <section class="box-section">
             
             <div class="box-quiz">
-                <h2>Sieci</h2> 
+                <h2>Sieci</h2>
+                <i class='bx bx-wifi'></i>
+                <button class="btn-start">Start</button>
+            </div>
+            <div class="box-quiz">
+                <h2>Systemy</h2>
+                <i class='bx bx-devices'></i>
+                <button class="btn-start">Start</button>
+            </div>
+            <div class="box-quiz">
+                <h2>Bazy</h2>
+                <i class='bx bx-line-chart'></i>
                 <button class="btn-start">Start</button>
             </div>
 
-        </section> <!-- end box section -->
+        </section> <!-- end box section top -->
+        <!-- box section bottom 
+        <section class="box-section">
+            
+            <div class="box-quiz">
+                <h2>Sprzęt</h2>
+                <i class='bx bx-microchip'></i>
+                <button class="btn-start">Start</button>
+            </div>
+            <div class="box-quiz">
+                <h2>Angielski</h2>
+                <i class='bx bx-user-pin' ></i>
+                <button class="btn-start">Start</button>
+            </div>
+
+        </section> <!-- end box section bottom -->
+
+        <!-- time section -->
+        <section class="time">
+            <time id="countdown">60:00</time>
+        </section> <!-- time section -->
+
+        <!-- appearance section -->
+        <section class="appearance">
+            
+            <div class="box-question">
+                <?php
+                    include('display_questions.php');
+                ?>
+            </div>
+              
+        </section> <!-- end appearance section -->
         
-            <section class="home">
-                <div class="home-content">
-                <h2>Sieci komputerowe</h2>
-                <div class="quiz-header">
-                    <time id="countdown"></time>
-                </div>
-
-                    
-                    <!-- <?php
-                        //połączenie z bazą danych
-                        //include('connect.php');
-                    ?> -->
-
-                    <div class="quiz-footer">
-                        <span class="question-total">1 z 20 Pytań</span>
-
-                        <div class="btns">
-                            <button class="btn">Poprzednie</button>
-                            <button class="btn">Następne</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        
-
     </main> <!-- end main -->
 
     <!--
     <script src="quiz.js"></script>
-    <script src="time/time.js"></script>
--->
+    <script src="time/time.js"></script>--?
 
 </body>
 </html>

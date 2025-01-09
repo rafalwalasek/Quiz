@@ -22,26 +22,8 @@
                     border-top: 1px solid #007bf0;
                     border-bottom: 1px solid #007bf0;
                 }
-                .quiz-box .question-text {
-                    font-size: 24px;
-                    font-weight: 600;
-                    margin: 20px 0 10px 0;
-                }
-                .option-list .option {
-                    width: 100%;
-                    padding: 12px;
-                    background: transparent;
-                    border: 2px solid rgba(255, 255, 255, .2);
-                    border-radius: 3px;
-                    font-size: 17px;
-                    margin: 15px 0;
-                    cursor: pointer;
-                    transition: .3s;
-                }
-                    .option-list .option:hover {
-                        background: rgba(255, 255, 255, .1);
-                        border-color: rgba(255, 255, 255, .1);
-                    }
+                
+                
                 .quiz-box .quiz-footer {
                     display: flex;
                     justify-content: space-between;

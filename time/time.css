@@ -1,6 +1,17 @@
-time {
-    font-size: 34px;
+/* --- time section --- */
+.time {
+    margin: 20px auto 0 auto;
+    padding: 20px 0;
+    border-top: 1px solid #007bf0;
+    border-bottom: 1px solid #007bf0;
+    box-shadow: 
+        0 -10px 10px -10px #007bf0,
+        0 10px 10px -10px #007bf0;
+    font-size: 44px;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-}
+    display: flex;
+    justify-content: center;
+    width: 900px;
+} /* --- end time section --- */
