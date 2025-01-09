@@ -1,90 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /*font-family: 'Poopins', sans-serif;*/
-    font-family: 'Courier New', Courier, monospace;
-}
-
-:root {
-    --text-color: #f5f5f5;
-}
-
-body {
-    color: var(--text-color);
-    overflow: hidden;
-    background: #09001d;
-}
-
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 10%;
-    background: transparent;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-}
-    .logo {
-        font-size: 32px;
-        color: var(--text-color);
-        font-weight: 700;
-        letter-spacing: 1px;
-    }
-        .logo img {
-            margin: 0 10px -12px 0;
-        }
-        .logo span {
-            color: #007bf0;
-        }
-    .navbar a {
-        font-size: 20px;
-        color: var(--text-color);
-        text-decoration: none;
-        font-weight: 600;
-        margin-left: 35px;
-        transition: .3s;
-    }
-        .navbar a:hover,
-        .navbar a.active {
-            color: #007bf0;
-        }
-
-main {
-    min-height: 100vh;
-    background: url('images/technology.jpg') no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-    .container {
-        display: flex;
-        justify-content: center;
-    }
-        .quiz-section {
-            max-width: 900px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            display: none;
-            border: 2px solid #007bf0;
-            box-shadow: 0 0 15px #09001d;
-            border-radius: 6px;
-            backdrop-filter: blur(10px);
-            margin-top: 150px;
-        }
+/*
             .quiz-section.active {
                 display: flex;
             }
-            .quiz-section .quiz-box {
-                display: flex;
-                flex-direction: column;
-                padding: 30px;
-            }
+            
                 .quiz-box h2 {
                     font-size: 42px;
                     text-align: center;
@@ -212,3 +131,4 @@ main {
                     .home-content .start-btn:hover {
                         box-shadow: none;
                     }
+*/

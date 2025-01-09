@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+:root {
+    --text-color: #f5f5f5;
+}
+
+body {
+    background: url('images/technology.jpg') no-repeat;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    color: var(--text-color);
+}
+
+/* --- header --- */
+header {
+    width: 100%;
+    padding: 20px 10%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+    .logo {
+        font-size: 32px;
+        color: var(--text-color);
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+        .logo img {
+            margin: 0 10px -12px 0;
+        }
+        .logo span {
+            color: #007bf0;
+        }
+
+    nav a {
+        font-size: 20px;
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 600;
+        margin-left: 35px;
+        transition: .3s;
+    }
+        nav a:hover,
+        nav a.active {
+            color: #007bf0;
+        } /* --- end header --- */
+
+/* --- main --- */
+main {
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 10px;
+    flex-direction: column;
+}
+    main p {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 500;
+        padding: 20px;
+    }
+
+    /* --- box-section --- */
+    .box-section {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+        .box-quiz {
+            padding: 30px;
+            height: 30vh;
+            width: 330px;
+            margin-left: 20px;
+            border: 1px solid #007bf0;
+            border-radius: 7px;
+            box-shadow: 0 0 15px #007bf0;
+            backdrop-filter: blur(10px);
+        }
+        .box-quiz:first-child {
+            margin-left: 0;
+        }
+            .box-quiz h2 {
+                font-size: 42px;
+                text-align: center;
+                text-transform: uppercase;
+                background: linear-gradient(45deg, transparent, #007bf0, transparent);
+                border-radius: 5px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            }
+            .box-quiz .btn-start {
+                display: flex;
+                margin: 0 auto;
+                align-items: center;
+                justify-content: center;
+                margin-top: 120px;
+                width: 190px;
+                height: 55px;
+                background: none;
+                border: 1px solid #007bf0;
+                border-radius: 5px;
+                box-shadow: 0 0 10px #007bf0;
+                font-size: 22px;
+                color: var(--text-color);
+                cursor: pointer;
+                text-transform: uppercase;
+                font-weight: 600;
+                letter-spacing: 1px;
+                transition: .5s;
+            }
+                .box-quiz .btn-start:hover {
+                    box-shadow: none;
+                    background: #007bf0;
+                    border: 1px solid #007bf0;
+                }
+    /* --- end box-section --- */
+/* --- end main --- */
