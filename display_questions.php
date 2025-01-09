@@ -1,7 +1,7 @@
 <?php
     include('connect.php');
 
-    $sql = "SELECT * FROM pytania LIMIT 2";
+    $sql = "SELECT * FROM pytania LIMIT 5";
     $result = $conn->query($sql);
 
     // Sprawdzanie, czy zapytanie zwróciło wynik

@@ -3,7 +3,7 @@ let time = startTime * 60;
 
 const countElement = document.getElementById('countdown');
 
-setInterval(countdown, 1000);
+let intervalId = setInterval(countdown, 1000);
 
 function countdown() {
     const minutes = Math.floor(time / 60);

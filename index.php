@@ -30,7 +30,7 @@
     <!-- main -->
     <main>
 
-        <p>Każdy test składa się z 40 pytań. Aby zdać trzeba uzyskać 50% poprawnych odpowiedzi. Czas na wykonanie testu to 60 min.</p>
+        <p id="p_main">Każdy test składa się z 40 pytań. Aby zdać trzeba uzyskać 50% poprawnych odpowiedzi. Czas na wykonanie testu to 60 min.</p>
 
         <!-- box section top 
         <section class="box-section">
@@ -88,7 +88,8 @@
 
     <!--
     <script src="quiz.js"></script>
-    <script src="time/time.js"></script>--?
+    <script src="time/time.js"></script>-->
+    <script src="scripts/scrolling.js"></script>
 
 </body>
 </html>
