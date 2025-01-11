@@ -26,11 +26,12 @@ header {
     align-items: center;
     z-index: 100;
     position: sticky;
-    top: 0;
+    top: 5px;
     transition: 0.3s ease-in-out;
 }
     header.scrolled {
-        background: #007bf0;
+        box-shadow: 0 0 15px #007bf0;
+        backdrop-filter: blur(10px);
     }
     .logo {
         font-size: 32px;
@@ -137,6 +138,20 @@ main {
                     border: 1px solid #007bf0;
                 }
     /* --- end box-section --- */
+    /* --- category_name --- */
+    .category_name {
+        width: 900px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 40px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 20px;
+        background: linear-gradient(45deg, transparent, #007bf0, transparent);
+        border-radius: 7px;
+        text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
+    } /* --- and category_name --- */
     /* --- appearance section --- */
     .appearance {
         width: 900px;
@@ -145,9 +160,8 @@ main {
         display: flex;
         justify-content: center;
         border: 1px solid #007bf0;
-        border-radius: 5px;
         box-shadow: 0 0 10px #007bf0;
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(15px);
     }
         .box-question {
             width: 750px;
@@ -164,7 +178,7 @@ main {
             border: 2px solid rgba(255, 255, 255, .2);
             border-radius: 3px;
             font-size: 17px;
-            margin: 15px 0;
+            margin: 15px auto;
             cursor: pointer;
             transition: .3s;
         }
@@ -178,9 +192,11 @@ main {
     .stars {
         display: flex;
         justify-content: center;
-        letter-spacing: 2px;
+        letter-spacing: 3px;
         font-size: 36px;
+        font-weight: 600;
         padding: 10px 0;
+        color: #007bf0;
     }
         .stars:last-child {
             display: none;

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tests</title>
     
+    <link rel="stylesheet" href="css/cover.css">
     <link rel="stylesheet" href="tests.css">
     <link rel="stylesheet" href="time/time.css">
 
@@ -32,7 +33,7 @@
 
         <p id="p_main">Każdy test składa się z 40 pytań. Aby zdać trzeba uzyskać 50% poprawnych odpowiedzi. Czas na wykonanie testu to 60 min.</p>
 
-        <!-- box section top 
+        <!-- box section top -->
         <section class="box-section">
             
             <div class="box-quiz">
@@ -40,7 +41,7 @@
                 <i class='bx bx-wifi'></i>
                 <button class="btn-start">Start</button>
             </div>
-            <div class="box-quiz">
+            <!--<div class="box-quiz">
                 <h2>Systemy</h2>
                 <i class='bx bx-devices'></i>
                 <button class="btn-start">Start</button>
@@ -49,7 +50,7 @@
                 <h2>Bazy</h2>
                 <i class='bx bx-line-chart'></i>
                 <button class="btn-start">Start</button>
-            </div>
+            </div>-->
 
         </section> <!-- end box section top -->
         <!-- box section bottom 
@@ -68,17 +69,20 @@
 
         </section> <!-- end box section bottom -->
 
+        <!-- category -->
+        <p class="category_name active">Sieci komputerowe</p> <!-- end category --> 
+
         <!-- time section -->
-        <section class="time">
+        <section class="time active">
             <time id="countdown">60:00</time>
         </section> <!-- time section -->
 
         <!-- appearance section -->
-        <section class="appearance">
+        <section class="appearance active">
             
             <div class="box-question">
                 <?php
-                    include('display_questions.php');
+                    include('php/display_questions.php');
                 ?>
             </div>
               

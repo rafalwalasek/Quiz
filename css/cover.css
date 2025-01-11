@@ -1,0 +1,5 @@
+.category_name.active,
+.time.active,
+.appearance.active {
+    display: none;
+}
