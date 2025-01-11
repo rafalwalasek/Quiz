@@ -1,5 +1,12 @@
-.category_name.active,
-.time.active,
-.appearance.active {
+.appearance-section {
     display: none;
+    transition: .3s ease;
 }
+    .appearance-section.active {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .boxes-section.active {
+        display: none;
+    }

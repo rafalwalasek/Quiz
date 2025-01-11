@@ -31,68 +31,79 @@
     <!-- main -->
     <main>
 
-        <p id="p_main">Każdy test składa się z 40 pytań. Aby zdać trzeba uzyskać 50% poprawnych odpowiedzi. Czas na wykonanie testu to 60 min.</p>
+        <!-- boxes section -->
+        <div class="boxes-section">
 
-        <!-- box section top -->
-        <section class="box-section">
-            
-            <div class="box-quiz">
-                <h2>Sieci</h2>
-                <i class='bx bx-wifi'></i>
-                <button class="btn-start">Start</button>
-            </div>
-            <!--<div class="box-quiz">
-                <h2>Systemy</h2>
-                <i class='bx bx-devices'></i>
-                <button class="btn-start">Start</button>
-            </div>
-            <div class="box-quiz">
-                <h2>Bazy</h2>
-                <i class='bx bx-line-chart'></i>
-                <button class="btn-start">Start</button>
-            </div>-->
+            <p id="p_main">Egzamin rozpocznie się po naciśnięciu przycisku: START. Każdy test składa się z 40 pytań. Aby zdać trzeba uzyskać 50% poprawnych odpowiedzi. Czas na wykonanie testu to 60 min.</p>
 
-        </section> <!-- end box section top -->
-        <!-- box section bottom 
-        <section class="box-section">
-            
-            <div class="box-quiz">
-                <h2>Sprzęt</h2>
-                <i class='bx bx-microchip'></i>
-                <button class="btn-start">Start</button>
-            </div>
-            <div class="box-quiz">
-                <h2>Angielski</h2>
-                <i class='bx bx-user-pin' ></i>
-                <button class="btn-start">Start</button>
-            </div>
+            <!-- box section top -->
+            <section class="box-section">
+                
+                <div class="box-quiz">
+                    <h2>Sieci</h2>
+                    <i class='bx bx-wifi'></i>
+                    <button class="btn-start">Start</button>
+                </div>
+                <!--<div class="box-quiz">
+                    <h2>Systemy</h2>
+                    <i class='bx bx-devices'></i>
+                    <button class="btn-start">Start</button>
+                </div>
+                <div class="box-quiz">
+                    <h2>Bazy</h2>
+                    <i class='bx bx-line-chart'></i>
+                    <button class="btn-start">Start</button>
+                </div>-->
+            </section> <!-- end box section top -->
+            <!-- box section bottom 
+            <section class="box-section">
+                <div class="box-quiz">
+                    <h2>Sprzęt</h2>
+                    <i class='bx bx-microchip'></i>
+                    <button class="btn-start">Start</button>
+                </div>
+                <div class="box-quiz">
+                    <h2>Angielski</h2>
+                    <i class='bx bx-user-pin' ></i>
+                    <button class="btn-start">Start</button>
+                </div>
+            </section> <!-- end box section bottom -->
 
-        </section> <!-- end box section bottom -->
-
-        <!-- category -->
-        <p class="category_name active">Sieci komputerowe</p> <!-- end category --> 
-
-        <!-- time section -->
-        <section class="time active">
-            <time id="countdown">60:00</time>
-        </section> <!-- time section -->
+        </div> <!-- end boxes section -->
 
         <!-- appearance section -->
-        <section class="appearance active">
-            
-            <div class="box-question">
-                <?php
-                    include('php/display_questions.php');
-                ?>
-            </div>
-              
-        </section> <!-- end appearance section -->
+        <div class="appearance-section">
+
+            <!-- category -->
+            <p class="category_name">Sieci komputerowe</p> <!-- end category --> 
+
+            <!-- time section -->
+            <section class="time">
+                <time id="countdown">60:00</time>
+                <button class="btn-exit">Zakończ</button>
+            </section> <!-- time section -->
+
+            <!-- end test section -->
+            <section class="test">
+                <div class="box-question">
+                    <?php
+                        include('php/display_questions.php');
+                    ?>
+                </div>
+            </section> <!-- end test section -->
+
+            <!-- time section -->
+            <section class="time">
+                <time id="countdown">60:00</time>
+                <button class="btn-exit">Zakończ</button>
+            </section> <!-- time section -->
+
+        </div> <!-- end appearance section -->
         
     </main> <!-- end main -->
 
-    <!--
-    <script src="quiz.js"></script>
-    <script src="time/time.js"></script>-->
+    <script src="scripts/quiz.js"></script>
+    <!--<script src="time/time.js"></script>-->
     <script src="scripts/scrolling.js"></script>
 
 </body>

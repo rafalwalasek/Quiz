@@ -15,7 +15,7 @@
 
     //wylosowanie 5 pytan
     shuffle($questions);
-    $selectedQuestions = array_slice($questions, 0, 10);
+    $selectedQuestions = array_slice($questions, 0, 3);
 
     //numeracja pytan
     $questionNumber = 1;

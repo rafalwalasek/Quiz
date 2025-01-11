@@ -1,7 +1,7 @@
 /* --- time section --- */
 .time {
     margin: 20px auto 0 auto;
-    padding: 20px 0;
+    padding: 20px 0 20px 140px;
     border-top: 1px solid #007bf0;
     border-bottom: 1px solid #007bf0;
     box-shadow: 
@@ -12,6 +12,32 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     width: 900px;
-} /* --- end time section --- */
+}
+    #countdown {
+        margin: 0 auto;
+        text-align: center;
+    }
+    .btn-exit {
+        width: 130px;
+        height: 55px;
+        background: none;
+        border: 1px solid #007bf0;
+        border-radius: 5px;
+        box-shadow: 0 0 10px #007bf0;
+        font-size: 22px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: var(--text-color);
+        transition: .5s;
+        backdrop-filter: blur(15px);
+    } 
+        .btn-exit:hover {
+            box-shadow: none;
+            background: #007bf0;
+            border: 1px solid #007bf0;
+        } /* --- end time section --- */
