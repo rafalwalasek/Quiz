@@ -42,14 +42,14 @@
                 <div class="box-quiz">
                     <h2>Sieci</h2>
                     <i class='bx bx-wifi'></i>
-                    <button class="btn-start">Start</button>
+                    <a class="btn-start">Start</a>
                 </div>
                 <!--<div class="box-quiz">
                     <h2>Systemy</h2>
                     <i class='bx bx-devices'></i>
                     <button class="btn-start">Start</button>
                 </div>
-                <div class="box-quiz">
+                <!--<div class="box-quiz">
                     <h2>Bazy</h2>
                     <i class='bx bx-line-chart'></i>
                     <button class="btn-start">Start</button>
@@ -69,6 +69,47 @@
                 </div>
             </section> <!-- end box section bottom -->
 
+            <!-- add questions -->
+            <div class="add-question">
+
+                <p>Dodaj pytanie do testu</p>
+
+                <form action="php/add_question.php" class="add-question-form" method="POST">
+
+                    <label>Treść pytania:</label>
+                    <textarea name="question" rows="5" required></textarea>
+                    
+                    <label>Odpowiedź A:</label>
+                    <input type="text" name="answerA" required>
+                    
+                    <label>Odpowiedź B:</label>
+                    <input type="text" name="answerB" required>
+                    
+                    <label>Odpowiedź C:</label>
+                    <input type="text" name="answerC" required>
+                    
+                    <label>Odpowiedź D:</label>
+                    <input type="text" name="answerD" required>
+                    
+                    <label>Odpowiedź poprawna:</label>
+                    <input type="text" name="correctAnswer" required>
+                    
+                    <label>Kategoria:</label>
+                    <select name="category" required>
+                        <option value="">-- Wybierz kategorię --</option>
+                        <option value="Sieci komputerowe">Sieci komputerowe</option>
+                        <option value="Systemy operacyjne">Systemy operacyjne</option>
+                        <option value="Sprzęt komputerowy">Sprzęt komputerowy</option>
+                        <option value="Programowanie">Programowanie</option>
+                    </select>
+
+                    <button type="submit">Dodaj pytanie</button>
+                    <button type="reset">Wyczyść formularz</button>
+
+                </form>
+
+            </div> <!-- end add questions -->
+
         </div> <!-- end boxes section -->
 
         <!-- appearance section -->
@@ -79,7 +120,7 @@
 
             <!-- time section -->
             <section class="time">
-                <time id="countdown">60:00</time>
+                <time class="countdown">60:00</time>
                 <button class="btn-exit">Zakończ</button>
             </section> <!-- time section -->
 
@@ -92,9 +133,9 @@
                 </div>
             </section> <!-- end test section -->
 
-            <!-- time section -->
+            <!-- time section 
             <section class="time">
-                <time id="countdown">60:00</time>
+                <time class="countdown">60:00</time>
                 <button class="btn-exit">Zakończ</button>
             </section> <!-- time section -->
 
@@ -105,6 +146,7 @@
     <script src="scripts/quiz.js"></script>
     <!--<script src="time/time.js"></script>-->
     <script src="scripts/scrolling.js"></script>
+    <script src="scripts/endTest.js"></script>
 
 </body>
 </html>
