@@ -44,18 +44,18 @@
                     <i class='bx bx-wifi'></i>
                     <a class="btn-start">Start</a>
                 </div>
-                <!--<div class="box-quiz">
+                <div class="box-quiz">
                     <h2>Systemy</h2>
                     <i class='bx bx-devices'></i>
                     <button class="btn-start">Start</button>
                 </div>
-                <!--<div class="box-quiz">
+                <div class="box-quiz">
                     <h2>Bazy</h2>
                     <i class='bx bx-line-chart'></i>
                     <button class="btn-start">Start</button>
-                </div>-->
+                </div>
             </section> <!-- end box section top -->
-            <!-- box section bottom 
+            <!-- box section bottom -->
             <section class="box-section">
                 <div class="box-quiz">
                     <h2>Sprzęt</h2>
@@ -67,48 +67,120 @@
                     <i class='bx bx-user-pin' ></i>
                     <button class="btn-start">Start</button>
                 </div>
+                <div class="box-quiz">
+                    <h2>Programowanie</h2>
+                    <i class='bx bx-user-pin' ></i>
+                    <button class="btn-start">Start</button>
+                </div>
             </section> <!-- end box section bottom -->
 
-            <!-- add questions -->
-            <div class="add-question">
+            <!-- data-base-container -->
+            <div class="data-base-container">
 
-                <p>Dodaj pytanie do testu</p>
+                <!-- add and update -->
+                <div class="add-and-update">
 
-                <form action="php/add_question.php" class="add-question-form" method="POST">
+                    <!-- add questions -->
+                    <div class="add-question">
 
-                    <label>Treść pytania:</label>
-                    <textarea name="question" rows="5" required></textarea>
-                    
-                    <label>Odpowiedź A:</label>
-                    <input type="text" name="answerA" required>
-                    
-                    <label>Odpowiedź B:</label>
-                    <input type="text" name="answerB" required>
-                    
-                    <label>Odpowiedź C:</label>
-                    <input type="text" name="answerC" required>
-                    
-                    <label>Odpowiedź D:</label>
-                    <input type="text" name="answerD" required>
-                    
-                    <label>Odpowiedź poprawna:</label>
-                    <input type="text" name="correctAnswer" required>
-                    
-                    <label>Kategoria:</label>
-                    <select name="category" required>
-                        <option value="">-- Wybierz kategorię --</option>
-                        <option value="Sieci komputerowe">Sieci komputerowe</option>
-                        <option value="Systemy operacyjne">Systemy operacyjne</option>
-                        <option value="Sprzęt komputerowy">Sprzęt komputerowy</option>
-                        <option value="Programowanie">Programowanie</option>
-                    </select>
+                        <p>Dodaj pytanie do testu</p>
 
-                    <button type="submit">Dodaj pytanie</button>
-                    <button type="reset">Wyczyść formularz</button>
+                        <form action="php/add_question.php" class="add-question-form" method="POST">
 
-                </form>
+                            <label>Treść pytania:</label>
+                            <textarea name="question" rows="5" required></textarea>
+                            
+                            <label>Odpowiedź A:</label>
+                            <input type="text" name="answerA" required>
+                            
+                            <label>Odpowiedź B:</label>
+                            <input type="text" name="answerB" required>
+                            
+                            <label>Odpowiedź C:</label>
+                            <input type="text" name="answerC" required>
+                            
+                            <label>Odpowiedź D:</label>
+                            <input type="text" name="answerD" required>
+                            
+                            <label>Odpowiedź poprawna:</label>
+                            <input type="text" name="correctAnswer" required>
+                            
+                            <label>Kategoria:</label>
+                            <select name="category" required>
+                                <option value="">-- Wybierz kategorię --</option>
+                                <option value="Sieci komputerowe">Sieci komputerowe</option>
+                                <option value="Systemy operacyjne">Systemy operacyjne</option>
+                                <option value="Sprzęt komputerowy">Sprzęt komputerowy</option>
+                                <option value="Programowanie">Programowanie</option>
+                            </select>
 
-            </div> <!-- end add questions -->
+                            <button type="submit">Dodaj pytanie</button>
+                            <button type="reset">Wyczyść formularz</button>
+
+                        </form>
+
+                    </div> <!-- end add questions -->
+                    <!-- update questions -->
+                    <div class="update-question">
+
+                        <p>Uaktualnienie pytania w teście</p>
+
+                        <form action="php/update_question.php" class="update-question-form" method="POST">
+
+                            <label>Treść pytania:</label>
+                            <textarea name="question" rows="5" required></textarea>
+
+                            <label>Odpowiedź A:</label>
+                            <input type="text" name="answerA" required>
+                            
+                            <label>Odpowiedź B:</label>
+                            <input type="text" name="answerB" required>
+                            
+                            <label>Odpowiedź C:</label>
+                            <input type="text" name="answerC" required>
+                            
+                            <label>Odpowiedź D:</label>
+                            <input type="text" name="answerD" required>
+                            
+                            <label>Odpowiedź poprawna:</label>
+                            <input type="text" name="correctAnswer" required>
+                            
+                            <label>Kategoria:</label>
+                            <select name="category" required>
+                                <option value="">-- Wybierz kategorię --</option>
+                                <option value="Sieci komputerowe">Sieci komputerowe</option>
+                                <option value="Systemy operacyjne">Systemy operacyjne</option>
+                                <option value="Sprzęt komputerowy">Sprzęt komputerowy</option>
+                                <option value="Programowanie">Programowanie</option>
+                            </select>
+
+                            <button type="submit">Uaktualnij pytanie</button>
+                            <button type="reset">Wyczyść formularz</button>
+
+                        </form>
+
+                    </div> <!-- end update questions -->
+
+                </div> <!-- end add and update -->
+                
+                <!-- remove questions -->
+                <div class="remove-question">
+
+                    <p>Usuń pytanie z testu</p>
+
+                    <form action="php/remove_question.php" class="remove-question-form" method="POST">
+
+                        <label>Treść pytania:</label>
+                        <textarea name="question" rows="5" required></textarea>
+
+                        <button type="submit">Usuń pytanie</button>
+                        <button type="reset">Wyczyść formularz</button>
+
+                    </form>
+
+                </div> <!-- end remove questions -->
+
+            </div> <!-- end data-base-container -->
 
         </div> <!-- end boxes section -->
 

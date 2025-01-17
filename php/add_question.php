@@ -13,17 +13,43 @@
         $odpowiedz = $_POST['correctAnswer'];
         $kategoria = $_POST['category'];
 
-        //zapytanie SQL
-        $sql = "INSERT INTO pytania (tresc, odpa, odpb, odpc, odpd, odpowiedz, kategoria) VALUES ('$tresc', '$odpa', '$odpb', '$odpc','$odpd','$odpowiedz', '$kategoria')";
+        //sprawdzenie czy zapytanie juz jest w bazie
+        $sqlCheck = "SELECT * FROM pytania WHERE tresc = ?";
+        $stmtCheck = $conn->prepare($sqlCheck);
+        $stmtCheck->bind_param("s", $tresc);
+        $stmtCheck->execute();
+        $resultCheck = $stmtCheck->get_result();
 
-        //wykonanie zapytania
-        if($conn->query($sql) === TRUE) {
-            echo "Nowe pytanie zostało dodane pomyślnie.";
+        if($resultCheck->num_rows > 0) {
+            echo "<script>
+                alert('Pytanie o tej treści już istnieje w bazie danych.');
+                window.history.back();
+            </script>";
         } else {
-            echo "Błąd: " . $sql . "<br>" . $conn->error;
+
+            //window.location.href = '../index.php';
+            //zapytanie SQL do dodania pytania
+            $sqlInsert = "INSERT INTO pytania (tresc, odpa, odpb, odpc, odpd, odpowiedz, kategoria) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            $stmtInsert = $conn->prepare($sqlInsert);
+            $stmtInsert->bind_param("sssssss", $tresc, $odpa, $odpb, $odpc, $odpd, $odpowiedz, $kategoria);
+
+            //wykonanie zapytania
+            if($stmtInsert->execute()) {
+                echo "<script>
+                    alert('Nowe pytanie zostało dodane pomyślnie.');
+                    window.history.back();
+                </script>";
+            } else {
+                echo "Błąd: " . $sql . "<br>" . $conn->error;
+            }
+
+            //zamkniecie zapytania
+            $stmtInsert->close();
+
         }
 
         //zamkniecie polaczenia
+        $stmtCheck->close();
         $conn->close();
     }
 

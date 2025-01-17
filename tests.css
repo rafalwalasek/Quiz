@@ -139,68 +139,113 @@ main {
                         border: 1px solid #007bf0;
                     }
         /* --- end box-section --- */
-        /* --- add questions --- */
-        .add-question {
-            max-width: 600px;
-            margin: 30px auto;
-            padding: 20px;
-            background: linear-gradient(45deg, transparent, #007bf0, transparent);
-            border-radius: 7px;
-            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
-            text-transform: uppercase;
+
+        /* --- data-base-container --- */
+        .data-base-container {
+            margin: 20px 0;
+            padding: 15px;
         }
-            .add-question p {
-                font-size: 22px;
-                font-weight: 600;
-                text-align: center;
-                letter-spacing: 1px;
-                padding-bottom: 20px;
-            }
-            .add-question-form {
+            .add-and-update {
                 display: flex;
-                flex-direction: column;
-                gap: 10px;
+                justify-content: space-between;
             }
-                .add-question-form label {
-                    margin-top: 10px;
-                    font-size: bold;
-                    font-size: 18px;
-                }
-                .add-question-form textarea,
-                .add-question-form input[type="text"],
-                .add-question-form select {
-                    padding: 8px;
-                    border: 1px solid #ccc;
-                    border-radius: 4px;
-                    font-size: 14px;
-                    width: 100%;
-                    box-sizing: border-box;
-                    resize: none;
-                }
-                .add-question-form button {
-                    padding: 10px 15px;
-                    color: white;
-                    background-color: #007bff;
-                    border: none;
-                    border-radius: 4px;
-                    cursor: pointer;
-                    font-size: 16px;
-                    transition: .5s;
-                    margin-top: 10px;
+                /* --- add questions --- AND --- remove questions --- */
+                .add-question {
+                    width: 49%;
+                    padding: 20px;
+                    background: linear-gradient(45deg, transparent, #007bf0, transparent);
+                    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
                     text-transform: uppercase;
-                    font-weight: bold;
-                    letter-spacing: 1px;
+                    box-shadow: 0 0 10px #007bf0;
                 }
-                    .add-question-form button[type="reset"] {
-                        background-color: #6c757d;
+                .update-question {
+                    width: 49%;
+                    padding: 20px;
+                    background: linear-gradient(45deg, transparent, #007bf0, transparent);
+                    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
+                    text-transform: uppercase;
+                    box-shadow: 0 0 10px #007bf0;
+                }
+                .remove-question {
+                    width: 70%;
+                    margin: 30px auto 0 auto;
+                    padding: 20px;
+                    background: linear-gradient(45deg, transparent, #007bf0, transparent);
+                    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
+                    text-transform: uppercase;
+                    box-shadow: 0 0 10px #007bf0;
+                }
+                    .add-question p,
+                    .update-question p,
+                    .remove-question p {
+                        font-size: 22px;
+                        font-weight: 600;
+                        text-align: center;
+                        letter-spacing: 1px;
+                        padding-bottom: 20px;
                     }
-                    .add-question-form button:hover {
-                        background-color: #0056b3;
+                    .add-question-form,
+                    .update-question-form,
+                    .remove-question-form {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
                     }
-                    .add-question-form button[type="reset"]:hover {
-                        background-color: #5a6268;
-                    }
-        /* --- end add questions --- */
+                        .add-question-form label,
+                        .update-question-form label,
+                        .remove-question-form label {
+                            margin-top: 10px;
+                            font-size: bold;
+                            font-size: 18px;
+                        }
+                        .add-question-form textarea,
+                        .update-question-form textarea,
+                        .remove-question-form textarea,
+                        .add-question-form input[type="text"],
+                        .update-question-form input[type="text"],
+                        .add-question-form select,
+                        .update-question-form select {
+                            padding: 8px;
+                            border: 1px solid #ccc;
+                            border-radius: 4px;
+                            font-size: 14px;
+                            width: 100%;
+                            box-sizing: border-box;
+                            resize: none;
+                        }
+                        .add-question-form button,
+                        .update-question-form button,
+                        .remove-question-form button {
+                            padding: 10px 15px;
+                            color: white;
+                            background-color: #007bff;
+                            border: none;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            font-size: 16px;
+                            transition: .5s;
+                            margin-top: 10px;
+                            text-transform: uppercase;
+                            font-weight: bold;
+                            letter-spacing: 1px;
+                        }
+                            .add-question-form button[type="reset"],
+                            .update-question-form button[type="reset"],
+                            .remove-question-form button[type="reset"] {
+                                background-color: #6c757d;
+                            }
+                            .add-question-form button:hover,
+                            .update-question-form button:hover,
+                            .remove-question-form button:hover {
+                                background-color: #0056b3;
+                            }
+                            .add-question-form button[type="reset"]:hover,
+                            .update-question-form button[type="reset"]:hover,
+                            .remove-question-form button[type="reset"]:hover {
+                                background-color: #5a6268;
+                            }
+                /* --- end add questions --- AND --- end remove questions --- */
+        /* --- data-base-container --- */
     /* --- end boxes-section --- */
 
     /* --- appearance section --- */
