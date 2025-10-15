@@ -4,15 +4,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import pl.walas.quiz.dto.QuestionDTO;
+import pl.walas.quiz.service.QuestionService;
+
+import java.util.List;
+
 @RestController
 @RequestMapping("/quiz")
 public class QuizRestController {
+    private final QuestionService questionService;
 
-    @GetMapping("/")
-    public String helloWorld() {
-        return "Backend działa!";
+    public QuizRestController(QuestionService questionService) {
+        this.questionService = questionService;
     }
 
-
-
+    @GetMapping
+    public List<QuestionDTO> getAllQuestions() {
+        return questionService.getAllQuestions();
+    }
 }
