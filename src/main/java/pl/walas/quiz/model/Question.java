@@ -14,6 +14,7 @@ public class Question {
     private String option_c;
     private String option_d;
     private String correct_option;
+    private String category;
 
     public Question() {}
 
@@ -38,6 +39,9 @@ public class Question {
     public String getCorrect_option() {
         return correct_option;
     }
+    public String getCategory() {
+        return category;
+    }
 
     public void setId(Long id) {
         this.id = id;
@@ -59,5 +63,8 @@ public class Question {
     }
     public void setCorrect_option(String correct_option) {
         this.correct_option = correct_option;
+    }
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

@@ -8,9 +8,74 @@ body {
     font-family: 'Lato', sans-serif;
 }
 .wrapper {
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
 }
 
+#menu.active {
+    display: block;
+}
+    .content {
+        width: 800px;
+        background-color: #000;
+        box-shadow: 0 0 10px #fff;
+        border-radius: 5px;
+        height: 500px;
+        padding: 20px;
+        color: #fff;
+    }
+        .content h1 {
+            text-align: center;
+            padding: 5px;
+        }
+        .content p {
+            text-align: center;
+            font-size: 18px;
+            padding: 20px;
+        }
+        .tiles {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+            .tile {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                width: 250px;
+                background-color: slateblue;
+                border-radius: 5px;
+                box-shadow: 0 0 5px #fff;
+                padding: 10px;
+                text-align: center;
+            }
+                .tile i {
+                    font-size: 38px;
+                }
+                .tile button {
+                    border: none;
+                    padding: 5px;
+                    background-color: #4169E1;
+                    border-radius: 5px;
+                    box-shadow: 0 0 3px #fff;
+                    color: #fff;
+                    font-size: 20px;
+                    width: 150px;
+                    margin: 0 auto;
+                    cursor: pointer;
+                    transition: all 0.5s ease-in-out;
+                }
+                    .tile button:hover {
+                        background-color: #2047c0;
+                    }
+#block-questions {
+    display: none;
+}
 .block-questions {
     width: 800px;
     margin: 0 auto;
