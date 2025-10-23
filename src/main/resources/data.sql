@@ -4,12 +4,14 @@ INSERT INTO question(
     option_b,
     option_c,
     option_d,
-    correct_option
+    correct_option,
+    category
 ) VALUES(
-    'Które z poniższych słów kluczowych służy do zdefiniowania klasy w Javie?',
-    'define',
-    'struct',
-    'class',
-    'object',
-    'C'
+    'Która metoda w Javie jest wywoływana przy starcie programu?',
+    'start()',
+    'main()',
+    'init()',
+    'run()',
+    'B',
+    'programowanie'
 );

@@ -11,7 +11,7 @@
 <body>
     <div class="wrapper">
 
-        <div id="menu">
+        <div id="menu" class="menu">
             <div class="content">
                 <h1>Testy - menu</h1>
                 <hr>
@@ -21,23 +21,14 @@
                     <div class="tile">
                         <h2>Java</h2>
                         <i class='bxr bx-bracket-curly'></i>
-                        <button>Start</button>
-                    </div>
-                    <div class="tile">
-                        <h2>Angielski</h2>
-                        <i class='bxr bx-cognition'></i>
-                        <button>Start</button>
-                    </div>
-                    <div class="tile">
-                        <h2>SQL</h2>
-                        <i class='bxr bx-database-alt'></i>
-                        <button>Start</button>
+                        <button id="start-java">Start</button>
                     </div>
                 </div>
             </div>
         </div>
 
         <div id="block-questions" class="block-questions">
+            <button class="return-btn">Powrót!</button>
             <div id="category">Test - 40 pytań</div>
 
             <div id="time">00:00</div>
@@ -45,10 +36,11 @@
             <div id="time">00:00</div>
 
             <button>Sprawdź odpowiedzi!</button>
+            <button class="return-btn">Powrót!</button>
         </div>
 
     </div>
 
-    <script src="script.js"></script>
+    <script src="db_script.js"></script>
 </body>
 </html>

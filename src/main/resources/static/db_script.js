@@ -1,4 +1,9 @@
-fetch(`http://localhost:8080/quiz`)
+// --- przycisk: start-java i pokazanie pytan ---
+document.getElementById('start-java').addEventListener("click", () => {
+    document.getElementById('menu').style.display = "none";
+    document.getElementById('block-questions').style.display = "block";
+
+    fetch(`http://localhost:8080/quiz`)
     .then(response => response.json())
     .then(data => {
         const quizDiv = document.getElementById("quiz");
@@ -31,3 +36,14 @@ fetch(`http://localhost:8080/quiz`)
 
     })
     .catch(error => console.error("Błąd:", error));
+});
+// --- powrot do menu glownego ---
+document.querySelectorAll('.return-btn').forEach(button => {
+    button.addEventListener("click", () => {
+        document.getElementById('block-questions').style.display = "none";
+        document.getElementById('menu').style.display = "block";
+
+        const quizDiv = document.getElementById("quiz");
+        quizDiv.innerHTML = "";
+    });
+});
