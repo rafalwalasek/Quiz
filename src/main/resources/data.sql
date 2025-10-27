@@ -7,11 +7,11 @@ INSERT INTO question(
     correct_option,
     category
 ) VALUES(
-    'Która metoda w Javie jest wywoływana przy starcie programu?',
-    'start()',
-    'main()',
-    'init()',
-    'run()',
-    'B',
+    'Co oznacza modyfikator static w Javie?',
+    'Zmienna lub metoda jest wspólna dla wszystkich obiektów',
+    'Zmienna jest tylko lokalna',
+    'Metoda nie może być wywołana',
+    'Zmienna nie może się zmieniać',
+    'A',
     'programowanie'
 );

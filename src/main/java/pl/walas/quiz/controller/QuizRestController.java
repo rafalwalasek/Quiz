@@ -1,12 +1,11 @@
 package pl.walas.quiz.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import pl.walas.quiz.dto.QuestionDTO;
+import pl.walas.quiz.model.User;
 import pl.walas.quiz.service.QuestionService;
+import pl.walas.quiz.service.UserService;
 
 import java.util.List;
 
@@ -15,13 +14,21 @@ import java.util.List;
 @RequestMapping("/quiz")
 public class QuizRestController {
     private final QuestionService questionService;
+    private final UserService userService;
 
-    public QuizRestController(QuestionService questionService) {
+    public QuizRestController(QuestionService questionService, UserService userService) {
         this.questionService = questionService;
+        this.userService = userService;
     }
 
     @GetMapping
     public List<QuestionDTO> getAllQuestions() {
         return questionService.getAllQuestions();
+    }
+
+    @PostMapping("/users")
+    public User addUser(@RequestBody User user) {
+        System.out.println(user);
+        return userService.saveUser(user.getName());
     }
 }

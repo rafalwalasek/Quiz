@@ -47,3 +47,35 @@ document.querySelectorAll('.return-btn').forEach(button => {
         quizDiv.innerHTML = "";
     });
 });
+// --- pobranie danych z formularza ---
+const BUTTON = document.getElementById('submit-button');
+BUTTON.addEventListener("click", (e) => {
+    e.preventDefault();
+    const NAME = document.getElementById('user-name').value.trim();
+
+    if (NAME === "") {
+        alert("Proszę wpisać imię lub nick!");
+        return;
+    }
+
+    fetch("http://localhost:8080/quiz/users", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ 
+            name: NAME 
+        })
+    })
+    .then(response => response.json())
+    .then(user => {
+        console.log("Zapisano:", user);
+        document.getElementById("form-div").style.display = "none";
+        document.getElementById("menu").style.display = "block";
+
+        console.log(user);
+        const DB_NAME = document.getElementById("db_name");
+        DB_NAME.innerHTML = user.name;
+    })
+    .catch(error => console.error("Błąd:", error));
+});

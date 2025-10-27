@@ -11,9 +11,20 @@
 <body>
     <div class="wrapper">
 
+        <div id="form-div" class="form-div">
+            <form method="POST" action="/submit-form">
+                <label for="user-name">Imię / nick: </label>
+                <input type="text" id="user-name" name="user-name">
+                <button id="submit-button" type="button">Dalej...</button>
+            </form>
+        </div>
+
         <div id="menu" class="menu">
             <div class="content">
-                <h1>Testy - menu</h1>
+                <div>
+                    Witaj <span id="db_name"></span>!
+                    <h1>Testy</h1>
+                </div>
                 <hr>
                 <p>opis</p>
 
@@ -22,6 +33,20 @@
                         <h2>Java</h2>
                         <i class='bxr bx-bracket-curly'></i>
                         <button id="start-java">Start</button>
+                    </div>
+                </div>
+                <div class="tiles">
+                    <div class="tile">
+                        <h2>Angielski</h2>
+                        <i class='bxr bx-cognition'></i>
+                        <button id="start-angielski">Start</button>
+                    </div>
+                </div>
+                <div class="tiles">
+                    <div class="tile">
+                        <h2>SQL</h2>
+                        <i class='bxr bx-database-alt'></i>
+                        <button id="start-sql">Start</button>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,92 @@
+[
+    {
+        "question_text": "Który operator w Javie służy do łączenia łańcuchów znaków?",
+        "option_a": "+",
+        "option_b": "&",
+        "option_c": "&&",
+        "option_d": "concat",
+        "correct_option": "A",
+        "category": "programowanie"
+    },
+    {
+        "question_text": "Jakiego typu danych użyjesz do przechowywania liczby zmiennoprzecinkowej w Javie?",
+        "option_a": "int",
+        "option_b": "double",
+        "option_c": "boolean",
+        "option_d": "char",
+        "correct_option": "B",
+        "category": "programowanie"
+    },
+    {
+        "question_text": "Która instrukcja służy do przerwania pętli w Javie?",
+        "option_a": "stop",
+        "option_b": "break",
+        "option_c": "continue",
+        "option_d": "exit",
+        "correct_option": "B",
+        "category": "programowanie"
+    },
+    {
+        "question_text": "Jak w Javie definiuje się metodę, która nic nie zwraca?",
+        "option_a": "void",
+        "option_b": "null",
+        "option_c": "empty",
+        "option_d": "return",
+        "correct_option": "A",
+        "category": "programowanie"
+    },
+    {
+        "question_text": "Co oznacza ArrayList w Javie?",
+        "option_a": "Tablica o stałej długości",
+        "option_b": "Lista dynamiczna",
+        "option_c": "Stała liczba elementów",
+        "option_d": "Tablica dwuwymiarowa",
+        "correct_option": "B",
+        "category": "programowanie"
+    },
+    {
+        "question_text": "Jak zadeklarujesz zmienną globalną w Javie?",
+        "option_a": "static",
+        "option_b": "public",
+        "option_c": "final",
+        "option_d": "global",
+        "correct_option": "A",
+        "category": "programowanie"
+    },
+    {
+        "question_text": "Które słowo kluczowe służy do dziedziczenia w Javie?",
+        "option_a": "inherits",
+        "option_b": "extends",
+        "option_c": "implements",
+        "option_d": "super",
+        "correct_option": "B",
+        "category": "programowanie"
+    },
+    {
+        "question_text": "Co oznacza interface w Javie?",
+        "option_a": "Klasa abstrakcyjna",
+        "option_b": "Zbiór metod, które klasa musi implementować",
+        "option_c": "Obiekt do wywołań sieciowych",
+        "option_d": "Metodę statyczną",
+        "correct_option": "B",
+        "category": "programowanie"
+    },
+    {
+        "question_text": "Który modyfikator pozwala na dostęp tylko w tym samym pakiecie?",
+        "option_a": "public",
+        "option_b": "private",
+        "option_c": "protected",
+        "option_d": "default",
+        "correct_option": "D",
+        "category": "programowanie"
+    },
+    {
+        "question_text": "Jak w Javie tworzy się komentarz wieloliniowy?",
+        "option_a": "// komentarz",
+        "option_b": "<!-- komentarz -->",
+        "option_c": "/* komentarz */",
+        "option_d": "# komentarz",
+        "correct_option": "C",
+        "category": "programowanie"
+    }
+]
