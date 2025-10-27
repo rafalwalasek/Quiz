@@ -69,13 +69,49 @@ BUTTON.addEventListener("click", (e) => {
     })
     .then(response => response.json())
     .then(user => {
-        console.log("Zapisano:", user);
         document.getElementById("form-div").style.display = "none";
         document.getElementById("menu").style.display = "block";
 
-        console.log(user);
         const DB_NAME = document.getElementById("db_name");
         DB_NAME.innerHTML = user.name;
     })
     .catch(error => console.error("Błąd:", error));
+});
+// --- odliczanie do konca testu ---
+const startJava = document.getElementById("start-java");
+
+let timer;
+startJava.addEventListener("click", () => {
+    if (timer) clearInterval(timer);
+
+    const timeDisplay = document.querySelectorAll(".time");
+    const returnButton = document.querySelectorAll(".return-btn");
+
+    let returnButtonClicked = false;
+    returnButton.forEach(btn => {
+        btn.addEventListener("click", () => {
+            returnButtonClicked = true;
+        });
+    });
+
+    let timeLeft = 300;
+    timer = setInterval(function() {
+        let min = Math.floor(timeLeft / 60);
+        let sec = timeLeft % 60;
+
+        min = (min < 10) ? "0" + min : min;
+        sec = (sec < 10) ? "0" + sec : sec;
+        timeDisplay.forEach(el => {
+            el.innerText = "Czas do końca - " + min + ":" + sec;
+        });
+
+        timeLeft--;
+
+        if (timeLeft < 0 || returnButtonClicked) {
+            clearInterval(timer);
+            timeDisplay.forEach(el => {
+                el.innerText = "Czas minął - 00:00";
+            });
+        }
+    }, 1000);
 });

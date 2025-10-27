@@ -60,7 +60,6 @@ body {
                     transform: translateY(-2px);
                     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
                 }/* --- END formularz --- */
-
     /* --- testy - menu --- */
     #menu {
         display: none;
@@ -69,56 +68,62 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #f0f0f0;
-        width: 600px;
-        margin: 50px auto 0 auto;
-        padding: 20px;
+        width: 600px; 
+        padding: 10px;
     }
         .menu .content {
             width: 500px;
             text-align: center;
             background-color: #fff;
-            padding: 30px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin: 0 auto;
         }
-            .tiles {
-                display: flex;
-                justify-content: center;
-                gap: 20px;
-                margin-top: 20px;
+            .content h1 {
+                padding: 10px;
             }
-                .tile {
-                    flex: 1;
+            .content p {
+                padding: 10px;
+                text-align: justify;
+            }
+                .tiles {
                     display: flex;
-                    flex-direction: column;
-                    background-color: #e6f0ff;
-                    border-radius: 10px;
-                    padding: 20px;
-                    text-align: center;
-                    gap: 10px;
+                    justify-content: center;
+                    gap: 20px;
+                    margin-top: 20px;
                 }
-                .tile h2 {
-                    margin-bottom: 15px;
-                    color: #1a73e8;
-                }
-                .tile i {
-                    font-size: 38px;
-                    margin-bottom: 10px;
-                }
-                .tile button {
-                    padding: 10px 20px;
-                    border: none;
-                    background-color: #1a73e8;
-                    color: white;
-                    border-radius: 5px;
-                    cursor: pointer;
-                    font-size: 16px;
-                }
-                    .tile button:hover {
-                        background-color: #155ab6;
-                    }/* --- END testy - menu --- */
-
+                    .tile {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        background-color: #e6f0ff;
+                        border-radius: 10px;
+                        padding: 20px;
+                        text-align: center;
+                        gap: 10px;
+                    }
+                    .tile h2 {
+                        margin-bottom: 15px;
+                        color: #1a73e8;
+                    }
+                    .tile i {
+                        font-size: 38px;
+                        margin-bottom: 10px;
+                    }
+                    .tile button {
+                        padding: 10px 20px;
+                        border: none;
+                        background-color: #1a73e8;
+                        color: white;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        font-size: 16px;
+                    }
+                        .tile button:hover {
+                            background-color: #155ab6;
+                        }/* --- END testy - menu --- */
+    /* --- przycisk -> powrot --- */
     .return-btn {
         display: block;
         border: none;
@@ -135,64 +140,62 @@ body {
     }
         .return-btn:hover {
             background-color: #2047c0;
-        }
-
-
-                
-#block-questions {
-    display: none;
-}
-.block-questions {
-    width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    color: #fff;
-}
-    .question-block {
-        padding: 10px;
+        }/* --- END przycisk -> powrot --- */
+    /* ---  --- */
+    #block-questions {
+        display: none;
     }
-        #category {
-            font-size: 32px;
-            background-color: salmon;
+    .block-questions {
+        width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        color: #fff;
+    }
+        .question-block {
             padding: 10px;
-            margin: 10px 0;
-            text-align: center;
-            color: #000;
-            font-weight: 600;
-            text-shadow: 2px 2px 3px #fff;
         }
-        #time {
-            padding: 15px 0;
-            margin: 10px 0;
-            border-top: 2px solid salmon;
-            border-bottom: 2px solid salmon;
-            font-size: 26px;
-            text-align: center;
-        }
-        .question-title {
-            background-color: #202020;
-            padding: 20px;
-            border-radius: 5px;
-            margin-bottom: 5px;
-            font-size: 22px;
-        }
-        .questions-options {
-            display: block;
-            background-color: #202020;
-            padding: 15px 20px;
-            border-radius: 5px;
-            margin: 5px auto;
-            font-size: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-        }
-            .questions-options:hover {
-                background-color: #000;
+            #category {
+                font-size: 32px;
+                background-color: salmon;
+                padding: 10px;
+                margin: 10px 0;
+                text-align: center;
+                color: #000;
+                font-weight: 600;
+                text-shadow: 2px 2px 3px #fff;
             }
-        .star {
-            font-size: 22px;
-            padding: 10px 0;
-            display: block;
-            margin: 15px auto 0 auto;
-            width: fit-content;
-        }
+            .time {
+                padding: 15px 0;
+                margin: 10px 0;
+                border-top: 2px solid salmon;
+                border-bottom: 2px solid salmon;
+                font-size: 26px;
+                text-align: center;
+            }
+            .question-title {
+                background-color: #202020;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 5px;
+                font-size: 22px;
+            }
+            .questions-options {
+                display: block;
+                background-color: #202020;
+                padding: 15px 20px;
+                border-radius: 5px;
+                margin: 5px auto;
+                font-size: 20px;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+            }
+                .questions-options:hover {
+                    background-color: #000;
+                }
+            .star {
+                font-size: 22px;
+                padding: 10px 0;
+                display: block;
+                margin: 15px auto 0 auto;
+                width: fit-content;
+            }/* ---  --- */
