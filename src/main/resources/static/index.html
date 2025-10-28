@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Quiz</title>
 
+    <link rel="icon" type="image/x-icon" href="img/w.ico">
+
     <link rel="stylesheet" href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&display=swap">
     <link rel="stylesheet" href="style.css">
@@ -21,11 +23,10 @@
 
         <div id="menu" class="menu">
             <div class="content">
-                Witaj <span id="db_name"></span>!
                 <h1>Testy</h1>
                 <hr>
                 <p>
-                    Witaj! W tej aplikacji możesz wziąć udział w testach z różnych dziedzin nauki. Wyniki testów będą dostępne w Twoim panelu. Na razie dostępne są 3 testy: Java, angielski i SQL. Po wybraniu testu i naciśnięciu „Start” test się rozpocznie. Masz na rozwiązanie 1 godzinę, każdy test zawiera 40 pytań, a aby go zdać, trzeba odpowiedzieć poprawnie na co najmniej 75% pytań.
+                    Witaj <span id="db_name"></span>! W tej aplikacji możesz wziąć udział w testach z różnych dziedzin nauki. Wyniki testów będą dostępne w Twoim panelu. Na razie dostępne są 3 testy: Java, angielski i SQL. Po wybraniu testu i naciśnięciu „Start” test się rozpocznie. Masz na rozwiązanie 1 godzinę, każdy test zawiera 40 pytań, a aby go zdać, trzeba odpowiedzieć poprawnie na co najmniej 75% pytań.
                 </p>
 
                 <div class="tiles">
@@ -35,20 +36,8 @@
                         <button id="start-java">Start</button>
                     </div>
                 </div>
-                <div class="tiles">
-                    <div class="tile">
-                        <h2>Angielski</h2>
-                        <i class='bxr bx-cognition'></i>
-                        <button id="start-angielski">Start</button>
-                    </div>
-                </div>
-                <div class="tiles">
-                    <div class="tile">
-                        <h2>SQL</h2>
-                        <i class='bxr bx-database-alt'></i>
-                        <button id="start-sql">Start</button>
-                    </div>
-                </div>
+
+                <button id="logout">Wyloguj!</button>
             </div>
         </div>
 
@@ -60,7 +49,7 @@
             <div id="quiz"></div>
             <div class="time">60:00</div>
 
-            <button>Sprawdź odpowiedzi!</button>
+            <button id="check-answers" class="check-answers">Sprawdź odpowiedzi!</button>
             <button class="return-btn">Powrót!</button>
         </div>
 

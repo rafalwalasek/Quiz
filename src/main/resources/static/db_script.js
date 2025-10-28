@@ -20,8 +20,23 @@ document.getElementById('start-java').addEventListener("click", () => {
             const letters = {a: "A", b: "B", c: "C", d: "D"};
             ["a", "b", "c", "d"].forEach(option => {
                 const label = document.createElement("label");
-                label.textContent = `${letters[option]}. ${question["option_" + option]}`;
                 label.classList.add("questions-options");
+
+                const input = document.createElement("input");
+                input.type = "radio";
+                input.name = "question_" + index;
+                input.value = question["option_" + option];
+
+                label.appendChild(input);
+                label.append(`${letters[option]}. ${question["option_" + option]}`);
+                
+                input.addEventListener("change", () => {
+                    document.querySelectorAll(`input[name="${input.name}"]`).forEach(otherInput => {
+                        otherInput.parentElement.classList.remove("selected");
+                    });
+
+                    label.classList.add("selected");
+                });
 
                 block.appendChild(label);
             });
@@ -37,14 +52,16 @@ document.getElementById('start-java').addEventListener("click", () => {
     })
     .catch(error => console.error("Błąd:", error));
 });
-// --- powrot do menu glownego ---
-document.querySelectorAll('.return-btn').forEach(button => {
-    button.addEventListener("click", () => {
-        document.getElementById('block-questions').style.display = "none";
-        document.getElementById('menu').style.display = "block";
+// --- Sprawdzenie odpowiedzi - wyniki ---
+const checkAnswers = document.getElementById("check-answers");
+checkAnswers.addEventListener("click", () => {
+    const questionBlocks = document.querySelectorAll(".question-block");
+    const totalQuestions = questionBlocks.length;
 
-        const quizDiv = document.getElementById("quiz");
-        quizDiv.innerHTML = "";
+    const userAnswer = {};
+    questionBlocks.forEach((block, index) => {
+        const selectedInput = block.querySelector('input[type="radio"]:checked');
+        userAnswer[index] = selectedInput ? selectedInput.value : null;
     });
 });
 // --- pobranie danych z formularza ---
@@ -114,4 +131,20 @@ startJava.addEventListener("click", () => {
             });
         }
     }, 1000);
+});
+// --- powrot do menu glownego ---
+document.querySelectorAll('.return-btn').forEach(button => {
+    button.addEventListener("click", () => {
+        document.getElementById('block-questions').style.display = "none";
+        document.getElementById('menu').style.display = "block";
+
+        const quizDiv = document.getElementById("quiz");
+        quizDiv.innerHTML = "";
+    });
+});
+// --- wylogowanie ---
+const logoutBtn = document.getElementById("logout");
+logoutBtn.addEventListener("click", () => {
+    document.getElementById("menu").style.display = "none";
+    document.getElementById("form-div").style.display = "block";
 });

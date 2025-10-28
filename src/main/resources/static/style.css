@@ -123,25 +123,7 @@ body {
                         .tile button:hover {
                             background-color: #155ab6;
                         }/* --- END testy - menu --- */
-    /* --- przycisk -> powrot --- */
-    .return-btn {
-        display: block;
-        border: none;
-        padding: 5px;
-        background-color: #4169E1;
-        border-radius: 5px;
-        box-shadow: 0 0 3px #fff;
-        color: #fff;
-        font-size: 20px;
-        width: 150px;
-        margin: 10px auto;
-        cursor: pointer;
-        transition: all 0.5s ease-in-out;
-    }
-        .return-btn:hover {
-            background-color: #2047c0;
-        }/* --- END przycisk -> powrot --- */
-    /* ---  --- */
+    /* --- pytania quizu --- */
     #block-questions {
         display: none;
     }
@@ -192,10 +174,67 @@ body {
                 .questions-options:hover {
                     background-color: #000;
                 }
+            .questions-options.selected {
+                background-color: blue;
+                color: white;
+            }
+                .questions-options input[type="radio"] {
+                    display: none;
+                }
             .star {
                 font-size: 22px;
                 padding: 10px 0;
                 display: block;
                 margin: 15px auto 0 auto;
                 width: fit-content;
-            }/* ---  --- */
+            }/* --- END pytania quizu --- */
+/* === -------------------------------------------------------------------------- === */
+    /* --- przycisk -> powrot --- */
+    .return-btn {
+        display: block;
+        border: none;
+        padding: 5px;
+        background-color: #4169E1;
+        border-radius: 5px;
+        box-shadow: 0 0 3px #fff;
+        color: #fff;
+        font-size: 20px;
+        width: 150px;
+        margin: 10px auto;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+    }
+        .return-btn:hover {
+            background-color: #2047c0;
+        }/* --- END przycisk -> powrot --- */
+    /* --- przycisk -> sprawdz wyniki --- */
+    .check-answers {
+        display: block;
+        margin: 20px auto;
+        background-color: #4CAF50; /* zielony */
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 5px;
+        font-size: 24px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+        .check-answers:hover {
+            background-color: #45a049;
+        }/* --- END przycisk -> sprawdz wyniki --- */
+    /* --- przycisk -> wyloguj --- */ 
+    #logout {
+        margin-top: 20px;
+        background-color: #f44336; /* czerwony */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.1s ease;
+    }
+        #logout:hover {
+            background-color: #d32f2f;
+        }/* --- END przycisk -> wyloguj --- */
