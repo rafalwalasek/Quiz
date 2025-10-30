@@ -58,42 +58,28 @@ checkAnswers.addEventListener("click", () => {
     const questionBlocks = document.querySelectorAll(".question-block");
     const totalQuestions = questionBlocks.length;
 
-    const userAnswer = {};
+    const userAnswers = {};
     questionBlocks.forEach((block, index) => {
         const selectedInput = block.querySelector('input[type="radio"]:checked');
-        userAnswer[index] = selectedInput ? selectedInput.value : null;
+        userAnswers[index] = selectedInput ? selectedInput.value : null;
     });
-});
-// --- pobranie danych z formularza ---
-const BUTTON = document.getElementById('submit-button');
-BUTTON.addEventListener("click", (e) => {
-    e.preventDefault();
-    const NAME = document.getElementById('user-name').value.trim();
 
-    if (NAME === "") {
-        alert("Proszę wpisać imię lub nick!");
-        return;
-    }
-
-    fetch("http://localhost:8080/quiz/users", {
+    fetch("http://localhost:8080/quiz/submit", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ 
-            name: NAME 
+        body: JSON.stringify({
+            userId: currentUserId,
+            answers: userAnswers
         })
     })
-    .then(response => response.json())
-    .then(user => {
-        document.getElementById("form-div").style.display = "none";
-        document.getElementById("menu").style.display = "block";
-
-        const DB_NAME = document.getElementById("db_name");
-        DB_NAME.innerHTML = user.name;
-    })
-    .catch(error => console.error("Błąd:", error));
+    .then(res => res.json())
+    .then(result => {
+        console.log("Wynik: ", result);
+    });
 });
+
 // --- odliczanie do konca testu ---
 const startJava = document.getElementById("start-java");
 
@@ -141,10 +127,4 @@ document.querySelectorAll('.return-btn').forEach(button => {
         const quizDiv = document.getElementById("quiz");
         quizDiv.innerHTML = "";
     });
-});
-// --- wylogowanie ---
-const logoutBtn = document.getElementById("logout");
-logoutBtn.addEventListener("click", () => {
-    document.getElementById("menu").style.display = "none";
-    document.getElementById("form-div").style.display = "block";
 });

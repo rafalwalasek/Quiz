@@ -13,31 +13,47 @@
 <body>
     <div class="wrapper">
 
-        <div id="form-div" class="form-div">
-            <form method="POST" action="/submit-form">
-                <label for="user-name">Imię / nick: </label>
-                <input type="text" id="user-name" name="user-name">
-                <button id="submit-button" type="button">Dalej...</button>
-            </form>
-        </div>
+        <div id="main" class="main">
+            <div class="header">
+                <div class="logo">
+                    <img src="img/w.ico">
+                </div>
+                <div class="title">
+                    <h1>Testy</h1>
+                </div>
+                <div class="log">
+                    <button id="logout" class="logout-btn">Wyloguj!</button>
+                    <button id="login" class="login-btn">Login</button>
+                </div>
+            </div>
+                <div id="login-form" class="login-form">
+                    <form method="POST" action="/log-reg-form">
+                        <label for="user-name">Imię / nick: </label>
+                        <input type="text" id="user-name" name="user-name">
+                        <label for="user-email">E-mail: </label>
+                        <input type="email" id="user-email" name="user-email" required>
 
-        <div id="menu" class="menu">
-            <div class="content">
-                <h1>Testy</h1>
-                <hr>
-                <p>
-                    Witaj <span id="db_name"></span>! W tej aplikacji możesz wziąć udział w testach z różnych dziedzin nauki. Wyniki testów będą dostępne w Twoim panelu. Na razie dostępne są 3 testy: Java, angielski i SQL. Po wybraniu testu i naciśnięciu „Start” test się rozpocznie. Masz na rozwiązanie 1 godzinę, każdy test zawiera 40 pytań, a aby go zdać, trzeba odpowiedzieć poprawnie na co najmniej 75% pytań.
-                </p>
-
-                <div class="tiles">
-                    <div class="tile">
-                        <h2>Java</h2>
-                        <i class='bxr bx-bracket-curly'></i>
-                        <button id="start-java">Start</button>
-                    </div>
+                        <div id="error-msg"></div>
+                        <button id="login-button" type="button" class="login-button">Zaloguj...</button>
+                        <button id="register-button" type="button" class="register-button">Zarejestruj się</button>
+                    </form>
                 </div>
 
-                <button id="logout">Wyloguj!</button>
+            <div class="content">
+                <p id="login-info">
+                    Aby wziąć udział w teście, musisz być zalogowany. Zalogowany użytkownik ma dostęp do wszystkich dostępnych quizów oraz wyników swoich testów w panelu użytkownika. Jeśli nie masz jeszcze konta, możesz się zarejestrować, podając swój adres e-mail. Każdy adres e-mail jest unikalny — oznacza to, że nie można utworzyć dwóch kont z tym samym adresem.
+                </p>
+                <p id="welcome-info">
+                    Witaj <span id="db_user_name"></span>! W tej aplikacji możesz wziąć udział w testach z różnych dziedzin nauki. Wyniki testów będą dostępne w Twoim panelu. Na razie dostępne są 3 testy: Java, angielski i SQL. Po wybraniu testu i naciśnięciu „Start” test się rozpocznie. Masz na rozwiązanie 1 godzinę, każdy test zawiera 40 pytań, a aby go zdać, trzeba odpowiedzieć poprawnie na co najmniej 75% pytań.
+                </p>
+            </div>
+                
+            <div class="tiles">
+                <div class="tile">
+                    <h2>Java</h2>
+                    <i class='bxr bx-bracket-curly'></i>
+                    <button id="start-java">Start</button>
+                </div>
             </div>
         </div>
 
@@ -56,5 +72,6 @@
     </div>
 
     <script src="db_script.js"></script>
+    <script src="js/auth.js"></script>
 </body>
 </html>

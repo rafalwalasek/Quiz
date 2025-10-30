@@ -12,117 +12,185 @@ body {
     flex-direction: column;
     align-items: center;
 }
-    /* --- formularz --- */
-    #form-div {
+    /* === Main - menu === */
+    #main {
         display: block;
     }
-    .form-div {
-        max-width: 400px;
-        margin: 50px auto;
-        padding: 25px;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        background-color: #fff;
-    }
-        .form-div form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-            .form-div label {
-                font-weight: 600;
-                margin-bottom: 5px;
-            }
-            .form-div input {
-                padding: 10px 12px;
-                border-radius: 8px;
-                border: 1px solid #ccc;
-                font-size: 16px;
-                outline: none;
-                transition: border-color 0.3s, box-shadow 0.3s;
-            }
-            .form-div input:focus {
-                border-color: #00cc66;
-                box-shadow: 0 0 5px rgba(0, 204, 102, 0.5);
-            }
-            .form-div button {
-                padding: 12px;
-                border: none;
-                border-radius: 8px;
-                background: linear-gradient(to right, #00994d, #00cc66);
-                color: #fff;
-                font-size: 16px;
-                font-weight: 600;
-                cursor: pointer;
-                transition: transform 0.2s, box-shadow 0.2s;
-            }
-                .form-div button:hover {
-                    transform: translateY(-2px);
-                    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-                }/* --- END formularz --- */
-    /* --- testy - menu --- */
-    #menu {
-        display: none;
-    }
-    .menu {
+    .main {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 600px; 
+        width: 900px; 
         padding: 10px;
+        margin-top: 50px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px #000;
+        position: relative;
     }
-        .menu .content {
-            width: 500px;
-            text-align: center;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            margin: 0 auto;
+        /* === Header === */
+        .header {
+            background-color: #1a73e8;
+            box-shadow: 0 0 5px #000;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5px;
+            color: #fff;
         }
-            .content h1 {
-                padding: 10px;
+            .title h1 {
+                font-weight: 600;
+                text-shadow: 2px 2px 3px #000;
+                text-transform: uppercase;
             }
+            .log {
+                padding: 5px;
+            } 
+                .login-btn,
+                .logout-btn {
+                    background-color: #4CAF50;
+                    box-shadow: 0 0 5px #000;
+                    color: #fff;
+                    padding: 10px 25px;
+                    border: none;
+                    border-radius: 5px;
+                    font-size: 20px;
+                    cursor: pointer;
+                    transition: background-color 0.5s ease-in-out;
+                }
+                    .login-btn:hover {
+                        background-color: #45a049;
+                    }
+                .logout-btn {
+                    background-color: #f44336;
+                    font-size: 18px;
+                    padding: 11px 20px 10px;
+                }
+                    .logout-btn:hover {
+                        background-color: #d32f2f;
+                    }
+        /* === END Header === */
+            /* === Form === */
+            #login-form {
+                display: none;
+            }
+            .login-form {
+                position: absolute;
+                top: 75px;
+                right: 20px;
+                background-color: #fff;
+                border-radius: 5px;
+                box-shadow: 0 0 5px #000;
+                z-index: 100;
+                padding: 20px;
+                width: 300px;
+            }
+                .login-form form {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                }
+                    .login-form label {
+                        font-weight: 600;
+                        margin-bottom: 5px;
+                    }
+                    .login-form input {
+                        padding: 10px 12px;
+                        border-radius: 8px;
+                        border: 1px solid #ccc;
+                        font-size: 16px;
+                        outline: none;
+                        transition: border-color 0.3s, box-shadow 0.3s;
+                    }
+                        .login-form input:focus {
+                            border-color: #00cc66;
+                            box-shadow: 0 0 5px rgba(0, 204, 102, 0.5);
+                        }
+                    .login-button,
+                    .register-button {
+                        padding: 12px;
+                        border: none;
+                        border-radius: 8px;
+                        background-color: #00994d;
+                        color: #fff;
+                        font-size: 16px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: background-color 0.3s;
+                    }
+                        .login-button:hover {
+                            background-color: #00cc66;
+                        }
+                    .register-button {
+                        background-color: #1a73e8;
+                        transition: background-color 0.3s;
+                    }
+                        .register-button:hover {
+                            background-color: #4285f4;
+                        }
+            /* === END Form === */
+        /* === Content === */
+        .content {
+            padding: 10px;
+            margin-top: 10px;
+        }
             .content p {
-                padding: 10px;
+                font-size: 18px;
                 text-align: justify;
             }
-                .tiles {
-                    display: flex;
-                    justify-content: center;
-                    gap: 20px;
-                    margin-top: 20px;
+            #login-info {
+                display: block;
+            }
+            #welcome-info {
+                display: none;
+            }
+                #db_user_name {
+                    background-color: darkgoldenrod;
+                    color: #fff;
+                    padding: 0 3px;
                 }
-                    .tile {
-                        flex: 1;
-                        display: flex;
-                        flex-direction: column;
-                        background-color: #e6f0ff;
-                        border-radius: 10px;
-                        padding: 20px;
-                        text-align: center;
-                        gap: 10px;
+        /* === END Content === */
+        /* === Tiles === */
+        .tiles {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+            .tile {
+                display: flex;
+                flex-direction: column;
+                background-color: #e6f0ff;
+                border-radius: 10px;
+                padding: 20px;
+                text-align: center;
+                gap: 10px;
+                width: 200px;
+            }
+                .tile h2 {
+                    margin-bottom: 15px;
+                    color: #1a73e8;
+                }
+                .tile i {
+                    font-size: 38px;
+                    margin-bottom: 10px;
+                }
+                .tile button {
+                    padding: 10px 20px;
+                    border: none;
+                    background-color: #1a73e8;
+                    color: white;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-size: 16px;
+                }
+                    .tile button:hover {
+                        background-color: #155ab6;
                     }
-                    .tile h2 {
-                        margin-bottom: 15px;
-                        color: #1a73e8;
-                    }
-                    .tile i {
-                        font-size: 38px;
-                        margin-bottom: 10px;
-                    }
-                    .tile button {
-                        padding: 10px 20px;
-                        border: none;
-                        background-color: #1a73e8;
-                        color: white;
-                        border-radius: 5px;
-                        cursor: pointer;
-                        font-size: 16px;
-                    }
-                        .tile button:hover {
-                            background-color: #155ab6;
-                        }/* --- END testy - menu --- */
+        /* === END Tiles === */
+    /* === END Main - menu === */
+
     /* --- pytania quizu --- */
     #block-questions {
         display: none;
@@ -223,18 +291,4 @@ body {
         .check-answers:hover {
             background-color: #45a049;
         }/* --- END przycisk -> sprawdz wyniki --- */
-    /* --- przycisk -> wyloguj --- */ 
-    #logout {
-        margin-top: 20px;
-        background-color: #f44336; /* czerwony */
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.1s ease;
-    }
-        #logout:hover {
-            background-color: #d32f2f;
-        }/* --- END przycisk -> wyloguj --- */
+    
