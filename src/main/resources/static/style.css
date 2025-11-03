@@ -108,7 +108,8 @@ body {
                             box-shadow: 0 0 5px rgba(0, 204, 102, 0.5);
                         }
                     .login-button,
-                    .register-button {
+                    .register-button,
+                    .result-button {
                         padding: 12px;
                         border: none;
                         border-radius: 8px;
@@ -128,6 +129,12 @@ body {
                     }
                         .register-button:hover {
                             background-color: #4285f4;
+                        }
+                    .result-button {
+                        box-shadow: 0 0 5px #000;
+                    }
+                        .result-button:hover {
+                            background-color: #00cc66;
                         }
             /* === END Form === */
         /* === Content === */
@@ -151,45 +158,73 @@ body {
                     padding: 0 3px;
                 }
         /* === END Content === */
-        /* === Tiles === */
-        .tiles {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
+        /* === User menu === */
+        #user-menu {
+            display: none;
         }
-            .tile {
+        .user-menu {
+            padding: 10px;
+            margin-top: 10px;
+        }
+            .nav {
+                padding: 10px;
+                background-color: #1a73e8;
+                border-radius: 5px;
+                box-shadow: 0 0 5px #000;
+                margin-bottom: 10px;
                 display: flex;
-                flex-direction: column;
-                background-color: #e6f0ff;
-                border-radius: 10px;
-                padding: 20px;
-                text-align: center;
-                gap: 10px;
-                width: 200px;
+                justify-content: space-between;
             }
-                .tile h2 {
-                    margin-bottom: 15px;
-                    color: #1a73e8;
+            /* === Tiles === */
+            .tiles {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                padding: 20px;
+            }
+                .tile {
+                    display: flex;
+                    flex-direction: column;
+                    background-color: #e6f0ff;
+                    box-shadow: 0 0 5px #000;
+                    border-radius: 10px;
+                    padding: 20px;
+                    text-align: center;
+                    gap: 10px;
+                    width: 200px;
                 }
-                .tile i {
-                    font-size: 38px;
-                    margin-bottom: 10px;
-                }
-                .tile button {
-                    padding: 10px 20px;
-                    border: none;
-                    background-color: #1a73e8;
-                    color: white;
-                    border-radius: 5px;
-                    cursor: pointer;
-                    font-size: 16px;
-                }
-                    .tile button:hover {
-                        background-color: #155ab6;
+                    .tile h2 {
+                        margin-bottom: 15px;
+                        color: #1a73e8;
                     }
-        /* === END Tiles === */
+                    .tile i {
+                        font-size: 38px;
+                        margin-bottom: 10px;
+                    }
+                    .tile button {
+                        padding: 10px 20px;
+                        border: none;
+                        background-color: #1a73e8;
+                        color: white;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        font-size: 16px;
+                    }
+                        .tile button:hover {
+                            background-color: #155ab6;
+                        }
+            /* === END Tiles === */
     /* === END Main - menu === */
+    /* === Pytania quizu === */
+    #result {
+        display: none;
+        padding: 20px;
+        font-weight: bold;
+        font-size: 22px;
+        text-align: center;
+        border-radius: 5px;
+    }
+    /* === END Pytania quizu === */
 
     /* --- pytania quizu --- */
     #block-questions {

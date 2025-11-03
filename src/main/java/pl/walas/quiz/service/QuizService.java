@@ -1,49 +1,63 @@
-//package pl.walas.quiz.service;
-//
-//import org.springframework.stereotype.Service;
-//import pl.walas.quiz.dto.QuizDTO;
-//import pl.walas.quiz.dto.ResultDTO;
-//import pl.walas.quiz.model.Question;
-//import pl.walas.quiz.repository.QuestionRepository;
-//
-//import java.time.LocalDateTime;
-//import java.util.List;
-//
-//@Service
-//public class QuizService {
-//    private final QuestionRepository questionRepository;
-//
-//    public QuizService(QuestionRepository questionRepository) {
-//        this.questionRepository = questionRepository;
-//    }
-//
-//    public ResultDTO checkQuiz(QuizDTO quizDTO) {
-//        int correctCount = 0;
-//
-//        List<Question> questions = questionRepository.findByQuizId(quizDTO.getQuizId());
-//        for (Question question : questions) {
-//            if (question.getCorrect_option().equals(quizDTO.getUserAnswers().get(question.getId()))) {
-//                correctCount++;
-//            }
-//        }
-//
-//        int totalQuestions = questions.size();
-//        double percent = (correctCount / (double) totalQuestions) * 100;
-//
-//        boolean passed = false;
-//        if (percent >= 75) {
-//            passed = true;
-//        }
-//
-//        ResultDTO resultDTO = new ResultDTO();
-//        resultDTO.setCorrectCount(correctCount);
-//        resultDTO.setTotalQuestions(totalQuestions);
-//        resultDTO.setPercent(percent);
-//        resultDTO.setPassed(passed);
-//        resultDTO.setUserId(quizDTO.getUserId());
-//        resultDTO.setQuizId(quizDTO.getQuizId());
-//        resultDTO.setDateTaken(LocalDateTime.now());
-//
-//        return resultDTO;
-//    }
-//}
+package pl.walas.quiz.service;
+
+import org.springframework.stereotype.Service;
+import pl.walas.quiz.dto.QuestionResultDTO;
+import pl.walas.quiz.dto.QuizDTO;
+import pl.walas.quiz.dto.ResultDTO;
+import pl.walas.quiz.model.Question;
+import pl.walas.quiz.model.User;
+import pl.walas.quiz.repository.QuestionRepository;
+import pl.walas.quiz.repository.UserRepository;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+public class QuizService {
+    private final UserRepository userRepository;
+    private final QuestionRepository questionRepository;
+
+    public QuizService(UserRepository userRepository, QuestionRepository questionRepository) {
+        this.userRepository = userRepository;
+        this.questionRepository = questionRepository;
+    }
+
+    public ResultDTO checkQuiz(QuizDTO quizDTO) {
+        User user = userRepository.findByEmail(quizDTO.getUserEmail())
+                .orElseThrow(() -> new RuntimeException("Użytkownik nie istnieje!"));
+        List<Question> questions = questionRepository.findAll();
+        List<QuestionResultDTO> questionResults = new ArrayList<>();
+
+        int correctCount = 0;
+        for (Question question : questions) {
+            String userAnswer = quizDTO.getUserAnswers().get(question.getId());
+
+            QuestionResultDTO qResult = new QuestionResultDTO();
+            qResult.setQuestionId(question.getId());
+            qResult.setUserAnswer(userAnswer);
+            qResult.setCorrectAnswer(question.getCorrect_option());
+
+            questionResults.add(qResult);
+
+            if (question.getCorrect_option().equals(userAnswer)) {
+                correctCount++;
+            }
+        }
+
+        int totalQuestions = questions.size();
+        double percent = ((double) correctCount / totalQuestions) * 100;
+        boolean passed = percent >= 75;
+
+        ResultDTO resultDTO = new ResultDTO();
+        resultDTO.setUserId(user.getId());
+        resultDTO.setCorrectCount(correctCount);
+        resultDTO.setTotalQuestions(totalQuestions);
+        resultDTO.setPercent(percent);
+        resultDTO.setPassed(passed);
+        resultDTO.setDateTaken(LocalDateTime.now());
+        resultDTO.setQuestionResults(questionResults);
+
+        return resultDTO;
+    }
+}

@@ -24,11 +24,13 @@ public class QuestionService {
         for (Question q : questions) {
             QuestionDTO dto = new QuestionDTO();
 
+            dto.setId(q.getId());
             dto.setQuestion_text(q.getQuestion_text());
             dto.setOption_a(q.getOption_a());
             dto.setOption_b(q.getOption_b());
             dto.setOption_c(q.getOption_c());
             dto.setOption_d(q.getOption_d());
+            dto.setCorrect_option(q.getCorrect_option());
 
             dtoList.add(dto);
         }

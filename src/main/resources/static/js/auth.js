@@ -46,7 +46,7 @@ LOGIN_BUTTON.addEventListener("click", () => {
             }
         })
         .then(data => {
-            console.log("Zalogowano pomyślnie!", data);
+            localStorage.setItem("userEmail", EMAIL);
 
             ERROR_MSG.style.color = "green";
             ERROR_MSG.style.fontWeight = "bold";
@@ -61,6 +61,7 @@ LOGIN_BUTTON.addEventListener("click", () => {
             document.getElementById("login-info").style.display = "none";
             document.getElementById("welcome-info").style.display = "block";
             document.getElementById('login-form').style.display = "none";
+            document.getElementById("user-menu").style.display = "block";
         })
         .catch(error => {
             ERROR_MSG.style.color = "red";
@@ -143,5 +144,6 @@ const logoutBtn = document.getElementById("logout");
 logoutBtn.addEventListener("click", () => {
     document.getElementById("welcome-info").style.display = "none";
     document.getElementById("login-info").style.display = "block";
+    document.getElementById("user-menu").style.display = "none";
     document.getElementById("db_user_name").innerText = "";
 });// === END Przycisk wylogowanie ===

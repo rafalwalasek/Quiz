@@ -7,6 +7,7 @@ public class QuestionDTO {
     private String option_b;
     private String option_c;
     private String option_d;
+    private String correct_option;;
 
     public QuestionDTO() {}
 
@@ -28,6 +29,9 @@ public class QuestionDTO {
     public String getOption_d() {
         return option_d;
     }
+    public String getCorrect_option() {
+        return correct_option;
+    }
 
     public void setId(Long id) {
         this.id = id;
@@ -46,5 +50,8 @@ public class QuestionDTO {
     }
     public void setOption_d(String option_d) {
         this.option_d = option_d;
+    }
+    public void setCorrect_option(String correct_option) {
+        this.correct_option = correct_option;
     }
 }

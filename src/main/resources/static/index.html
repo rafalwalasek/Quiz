@@ -22,7 +22,6 @@
                     <h1>Testy</h1>
                 </div>
                 <div class="log">
-                    <button id="logout" class="logout-btn">Wyloguj!</button>
                     <button id="login" class="login-btn">Login</button>
                 </div>
             </div>
@@ -48,21 +47,30 @@
                 </p>
             </div>
                 
-            <div class="tiles">
-                <div class="tile">
-                    <h2>Java</h2>
-                    <i class='bxr bx-bracket-curly'></i>
-                    <button id="start-java">Start</button>
+            <div id="user-menu" class="user-menu">
+                <div class="nav">
+                    <button id="wyniki" class="result-button">Sprawdź wyniki</button>
+                    <button id="logout" class="logout-btn">Wyloguj!</button>
+                </div>
+                <div class="tiles">
+                    <div class="tile">
+                        <h2>Java</h2>
+                        <i class='bxr bx-bracket-curly'></i>
+                        <button id="start-java">Start</button>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div id="block-questions" class="block-questions">
+        <div id="block-questions" class="block-questions" data-id="">
             <button class="return-btn">Powrót!</button>
             <div id="category">Test - 40 pytań</div>
 
             <div class="time">60:00</div>
             <div id="quiz"></div>
+            <div id="result">
+                <p id="result-text"></p>
+            </div>
             <div class="time">60:00</div>
 
             <button id="check-answers" class="check-answers">Sprawdź odpowiedzi!</button>
@@ -71,7 +79,7 @@
 
     </div>
 
-    <script src="db_script.js"></script>
     <script src="js/auth.js"></script>
+    <script src="js/db_tests.js"></script>
 </body>
 </html>

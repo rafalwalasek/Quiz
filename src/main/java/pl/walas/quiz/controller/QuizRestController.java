@@ -4,11 +4,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import pl.walas.quiz.dto.QuestionDTO;
-//import pl.walas.quiz.dto.QuizDTO;
-//import pl.walas.quiz.dto.ResultDTO;
+import pl.walas.quiz.dto.QuizDTO;
+import pl.walas.quiz.dto.ResultDTO;
 import pl.walas.quiz.model.User;
 import pl.walas.quiz.service.QuestionService;
-//import pl.walas.quiz.service.QuizService;
+import pl.walas.quiz.service.QuizService;
 import pl.walas.quiz.service.UserService;
 
 import java.util.List;
@@ -19,12 +19,12 @@ import java.util.List;
 public class QuizRestController {
     private final QuestionService questionService;
     private final UserService userService;
-    //private final QuizService quizService;
+    private final QuizService quizService;
 
-    public QuizRestController(QuestionService questionService, UserService userService) {
+    public QuizRestController(QuestionService questionService, UserService userService, QuizService quizService) {
         this.questionService = questionService;
         this.userService = userService;
-        //this.quizService = quizService;
+        this.quizService = quizService;
     }
 
     @GetMapping
@@ -48,9 +48,8 @@ public class QuizRestController {
             return ResponseEntity.status(404).body(e.getMessage());
         }
     }
-
-//    @PostMapping("/submit")
-//    public ResultDTO checkQuiz(@RequestBody QuizDTO quizDTO) {
-//        return quizService.checkQuiz(quizDTO);
-//    }
+    @PostMapping("/submit")
+    public ResultDTO checkQuiz(@RequestBody QuizDTO quizDTO) {
+            return quizService.checkQuiz(quizDTO);
+    }
 }
