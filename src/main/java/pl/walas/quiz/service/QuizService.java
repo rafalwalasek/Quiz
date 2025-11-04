@@ -1,12 +1,15 @@
 package pl.walas.quiz.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.walas.quiz.dto.QuestionResultDTO;
 import pl.walas.quiz.dto.QuizDTO;
 import pl.walas.quiz.dto.ResultDTO;
 import pl.walas.quiz.model.Question;
+import pl.walas.quiz.model.Result;
 import pl.walas.quiz.model.User;
 import pl.walas.quiz.repository.QuestionRepository;
+import pl.walas.quiz.repository.ResultRepository;
 import pl.walas.quiz.repository.UserRepository;
 
 import java.time.LocalDateTime;
@@ -17,6 +20,9 @@ import java.util.List;
 public class QuizService {
     private final UserRepository userRepository;
     private final QuestionRepository questionRepository;
+
+    @Autowired
+    private ResultRepository resultRepository;
 
     public QuizService(UserRepository userRepository, QuestionRepository questionRepository) {
         this.userRepository = userRepository;
@@ -55,8 +61,17 @@ public class QuizService {
         resultDTO.setTotalQuestions(totalQuestions);
         resultDTO.setPercent(percent);
         resultDTO.setPassed(passed);
-        resultDTO.setDateTaken(LocalDateTime.now());
         resultDTO.setQuestionResults(questionResults);
+
+        Result resultEntity = new Result();
+        resultEntity.setUser(user);
+        resultEntity.setCorrectCount(correctCount);
+        resultEntity.setTotalQuestions(totalQuestions);
+        resultEntity.setPercent(percent);
+        resultEntity.setPassed(passed);
+        resultEntity.setDateTime(LocalDateTime.now());
+
+        resultRepository.save(resultEntity);
 
         return resultDTO;
     }

@@ -1,19 +1,34 @@
-package pl.walas.quiz.dto;
+package pl.walas.quiz.model;
+
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
-public class ResultDTO {
+@Entity
+@Table(name = "results")
+public class Result {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     private int correctCount;
     private int totalQuestions;
     private double percent;
     private boolean passed;
-    private Long userId;
-    private Long quizId;
-    private List<QuestionResultDTO> questionResults;
+    private LocalDateTime dateTime;
 
-    public ResultDTO() {}
+    public Result() {}
 
+    public Long getId() {
+        return id;
+    }
+    public User getUser() {
+        return user;
+    }
     public int getCorrectCount() {
         return correctCount;
     }
@@ -26,16 +41,16 @@ public class ResultDTO {
     public boolean isPassed() {
         return passed;
     }
-    public Long getUserId() {
-        return userId;
-    }
-    public Long getQuizId() {
-        return quizId;
-    }
-    public List<QuestionResultDTO> getQuestionResults() {
-        return questionResults;
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public void setUser(User user) {
+        this.user = user;
+    }
     public void setCorrectCount(int correctCount) {
         this.correctCount = correctCount;
     }
@@ -48,13 +63,7 @@ public class ResultDTO {
     public void setPassed(boolean passed) {
         this.passed = passed;
     }
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-    public void setQuizId(Long quizId) {
-        this.quizId = quizId;
-    }
-    public void setQuestionResults(List<QuestionResultDTO> questionResults) {
-        this.questionResults = questionResults;
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 }
