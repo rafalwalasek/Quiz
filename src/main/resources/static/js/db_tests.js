@@ -197,4 +197,56 @@ document.querySelectorAll('.return-btn').forEach(btn => {
         document.getElementById("quiz").innerHTML = "";
         timeDisplay.forEach(el => el.style.display = "none");
         document.getElementById("result").style.display = "none";
-    }// === Reset quizu - powrot do menu ===
+    }// === END Reset quizu - powrot do menu ===
+
+// === Wyniki z bazy danych ===
+const wyniki = document.getElementById("wyniki");
+wyniki.addEventListener("click", () => {
+    const tiles = document.getElementById('tiles');
+    const results = document.getElementById('results_users');
+
+    const isResultVisible = results.style.display === "block";
+
+    if (isResultVisible) {
+        results.style.display = "none";
+        tiles.style.display = "block";
+        wyniki.textContent = "Sprawdź wyniki";
+    } else {
+        tiles.style.display = "none";
+        results.style.display = "block";
+        wyniki.textContent = "Ukryj wyniki";
+        result_db();
+    }
+});
+// === END Wyniki z bazy danych ===
+
+    // === Wyniki funkcja ===
+    function result_db() {
+        const result_from_db = document.getElementById("result_from_db");
+
+        fetch(`http://localhost:8080/result_db?email=${email}`)
+        .then(response => response.json())
+        .then(data => {
+            result_from_db.innerHTML = "";
+
+            let count = 1;
+            data.forEach(result => {
+                const p = document.createElement("p");
+                const item = document.createElement("div");
+                const date = new Date(result.dateTime);
+                const formatted = date.toLocaleString("pl-PL", {
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit",
+                });
+
+                item.textContent = `${count++}. Data: ${formatted} | Wynik: ${result.percent}% | Poprawne: ${result.correctCount}/${result.totalQuestions} | ${result.passed ? "ZALICZONE" : "NIEZALICZONE"}`;
+                item.classList.add("result-item");
+                item.style.backgroundColor = result.passed ? "green" : "red";
+
+                result_from_db.appendChild(item);
+            });
+        })
+        .catch(error => console.error("Błąd:", error));
+    }
+    // === END Wyniki funkcja ===
