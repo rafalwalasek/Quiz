@@ -21,6 +21,10 @@ public class Result {
     private boolean passed;
     private LocalDateTime dateTime;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
     public Result() {}
 
     public Long getId() {
@@ -44,6 +48,9 @@ public class Result {
     public LocalDateTime getDateTime() {
         return dateTime;
     }
+    public Category getCategory() {
+        return category;
+    }
 
     public void setId(Long id) {
         this.id = id;
@@ -65,5 +72,8 @@ public class Result {
     }
     public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
+    }
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

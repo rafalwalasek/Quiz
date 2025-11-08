@@ -1,11 +1,9 @@
 package pl.walas.quiz.service;
 
 import org.springframework.stereotype.Service;
-
 import pl.walas.quiz.dto.QuestionDTO;
 import pl.walas.quiz.model.Question;
 import pl.walas.quiz.repository.QuestionRepository;
-
 import java.util.ArrayList;
 import java.util.List;
 

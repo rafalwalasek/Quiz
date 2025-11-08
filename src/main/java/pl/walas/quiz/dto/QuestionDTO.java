@@ -7,7 +7,8 @@ public class QuestionDTO {
     private String option_b;
     private String option_c;
     private String option_d;
-    private String correct_option;;
+    private String correct_option;
+    private String category;
 
     public QuestionDTO() {}
 
@@ -32,6 +33,9 @@ public class QuestionDTO {
     public String getCorrect_option() {
         return correct_option;
     }
+    public String getCategory() {
+        return category;
+    }
 
     public void setId(Long id) {
         this.id = id;
@@ -53,5 +57,8 @@ public class QuestionDTO {
     }
     public void setCorrect_option(String correct_option) {
         this.correct_option = correct_option;
+    }
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

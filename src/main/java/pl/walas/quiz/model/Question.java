@@ -14,7 +14,10 @@ public class Question {
     private String option_c;
     private String option_d;
     private String correct_option;
-    private String category;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     public Question() {}
 
@@ -39,7 +42,7 @@ public class Question {
     public String getCorrect_option() {
         return correct_option;
     }
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
@@ -64,7 +67,7 @@ public class Question {
     public void setCorrect_option(String correct_option) {
         this.correct_option = correct_option;
     }
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 }

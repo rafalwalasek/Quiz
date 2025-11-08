@@ -13,7 +13,9 @@
 <body>
     <div class="wrapper">
 
+        <!-- Main manu -->
         <div id="main" class="main">
+            <!-- Header -->
             <div class="header">
                 <div class="logo">
                     <img src="img/w.ico">
@@ -22,9 +24,11 @@
                     <h1>Testy</h1>
                 </div>
                 <div class="log">
-                    <button id="login" class="login-btn">Login</button>
+                    <button id="login" class="login-btn">Logowanie</button>
                 </div>
             </div>
+            <!-- END Header -->
+                <!-- Login form -->
                 <div id="login-form" class="login-form">
                     <form method="POST" action="/log-reg-form">
                         <label for="user-name">Imię / nick: </label>
@@ -37,16 +41,44 @@
                         <button id="register-button" type="button" class="register-button">Zarejestruj się</button>
                     </form>
                 </div>
+                <!-- END Login form -->
 
+            <!-- Content -->
             <div class="content">
-                <p id="login-info">
-                    Aby wziąć udział w teście, musisz być zalogowany. Zalogowany użytkownik ma dostęp do wszystkich dostępnych quizów oraz wyników swoich testów w panelu użytkownika. Jeśli nie masz jeszcze konta, możesz się zarejestrować, podając swój adres e-mail. Każdy adres e-mail jest unikalny — oznacza to, że nie można utworzyć dwóch kont z tym samym adresem.
-                </p>
+                <!-- Before login -->
+                <div id="login-info">
+                    <p>
+                        Aby wziąć udział w teście, musisz być zalogowany. Zalogowany użytkownik ma dostęp do wszystkich dostępnych quizów oraz wyników swoich testów w panelu użytkownika. Jeśli nie masz jeszcze konta, możesz się zarejestrować, podając swój adres e-mail. Każdy adres e-mail jest unikalny — oznacza to, że nie można utworzyć dwóch kont z tym samym adresem.
+                    </p>
+                    <h1>Liczba pytań w bazie:</h1>
+                    <div class="questions-count-div">
+                        <div class="count-tile">
+                            <h2>Wszystkie</h2>
+                            <i class='bxr bx-apartment'></i>
+                            <span id="question_count"></span>
+                        </div>
+                        <div class="count-tile">
+                            <h2>Java</h2>
+                            <i class='bxr bx-bracket-curly'></i>
+                            <span id="count_java"></span>
+                        </div>
+                        <div class="count-tile">
+                            <h2>SQL</h2>
+                            <i class='bxr bx-coins'></i>
+                            <span id="count_sql"></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Before login -->
+                <!-- After login -->
                 <p id="welcome-info">
-                    Witaj <span id="db_user_name"></span>! W tej aplikacji możesz wziąć udział w testach z różnych dziedzin nauki. Wyniki testów będą dostępne w Twoim panelu. Na razie dostępne są 3 testy: Java, angielski i SQL. Po wybraniu testu i naciśnięciu „Start” test się rozpocznie. Masz na rozwiązanie 1 godzinę, każdy test zawiera 40 pytań, a aby go zdać, trzeba odpowiedzieć poprawnie na co najmniej 75% pytań.
+                    Witaj <span id="db_user_name"></span>! W tej aplikacji możesz wziąć udział w testach z różnych dziedzin nauki. Wyniki testów będą dostępne w Twoim panelu. Na razie dostępne są 2 testy: Java, i SQL. Po wybraniu testu i naciśnięciu „Start” test się rozpocznie. Masz na rozwiązanie 1 godzinę, każdy test zawiera 40 pytań, a aby go zdać, trzeba odpowiedzieć poprawnie na co najmniej 75% pytań.
                 </p>
+                <!-- END After login -->
             </div>
-                
+            <!-- END Content -->
+            
+            <!-- Menu uzytkownika -->
             <div id="user-menu" class="user-menu">
                 <div class="nav">
                     <button id="wyniki" class="result-button">Sprawdź wyniki</button>
@@ -58,23 +90,32 @@
                         <i class='bxr bx-bracket-curly'></i>
                         <button id="start-java">Start</button>
                     </div>
+                    <div class="tile">
+                        <h2>SQL</h2>
+                        <i class='bxr bx-coins'></i>
+                        <button id="start-sql">Start</button>
+                    </div>
                 </div>
-                <div id="results_users" class="results_users">
-                    <div id="result_from_db"></div>
-                </div>
+                    <!-- Wyniki uzytkownika -->
+                    <div id="results_users" class="results_users">
+                        <div id="result_from_db"></div>
+                    </div>
+                    <!-- END Wyniki uzytkownika -->
             </div>
+            <!-- END Menu uzytkownika -->
         </div>
+        <!-- END Main manu -->
 
         <div id="block-questions" class="block-questions" data-id="">
             <button class="return-btn">Powrót!</button>
-            <div id="category">Test - 40 pytań</div>
+            <div id="category"><span id="text_category"></span> - 40 pytań</div>
 
-            <div class="time">60:00</div>
+            <div class="time">Czas do końca - 60:00</div>
             <div id="quiz"></div>
             <div id="result">
                 <p id="result-text"></p>
             </div>
-            <div class="time">60:00</div>
+            <div class="time">Czas do końca - 60:00</div>
 
             <button id="check-answers" class="check-answers">Sprawdź odpowiedzi!</button>
             <button class="return-btn">Powrót!</button>

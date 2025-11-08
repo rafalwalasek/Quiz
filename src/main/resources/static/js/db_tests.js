@@ -1,30 +1,43 @@
-const startJava = document.getElementById("start-java");
 const checkAnswers = document.getElementById("check-answers");
 const timeDisplay = document.querySelectorAll(".time");
+const startJava = document.getElementById("start-java");
+const startSql = document.getElementById("start-sql");
 
 let timer;
 let returnButtonClicked = false;
 
 // === Przycisk: start-java ===
 startJava.addEventListener("click", () => {
-    document.getElementById("result").style.display = "none";
-    document.getElementById("result-text").innerText = "";
+    startQuiz("java");
+});
+// === END Przycisk: start-java ===
+// === Przycisk: start-sql ===
+startSql.addEventListener("click", () => {
+    startQuiz("sql");
+});
+// === END Przycisk: start-sql ===
+    // === Start quiz ===
+    function startQuiz(category) {
+        document.getElementById("result").style.display = "none";
+        document.getElementById("result-text").innerText = "";
 
-    checkAnswers.disabled = false;
-    checkAnswers.style.opacity = 1;
-    checkAnswers.style.cursor = "pointer";
+        checkAnswers.disabled = false;
+        checkAnswers.style.opacity = 1;
+        checkAnswers.style.cursor = "pointer";
 
-    document.getElementById('main').style.display = "none";
-    document.getElementById('block-questions').style.display = "block";
+        document.getElementById('main').style.display = "none";
+        document.getElementById('block-questions').style.display = "block";
 
-    document.getElementById("quiz").innerHTML = "";
+        showCategory(category);
 
-    timeDisplay.forEach(el => el.style.display = "block");
+        document.getElementById("quiz").innerHTML = "";
 
-    if (timer) clearInterval(timer);
-    startTimer(300); // === Odliczanie czasu quizu ===
-    loadQuiz(); // === Wczytanie quizu ===
-});// === END Przycisk: start-java ===
+        timeDisplay.forEach(el => el.style.display = "block");
+
+        if (timer) clearInterval(timer);
+        startTimer(3600); // === Odliczanie czasu quizu ===
+        loadQuiz(category); // === Wczytanie quizu ===
+    }// === END Start quiz ===
 
     // === Odliczanie czasu quizu ===
     function startTimer(duration) {
@@ -50,11 +63,11 @@ startJava.addEventListener("click", () => {
         }, 1000);
     }// === END Odliczanie czasu quizu ===
     // === Wczytanie quizu ===
-    function loadQuiz() {
+    function loadQuiz(category) {
         const quizDiv = document.getElementById("quiz");
         quizDiv.innerHTML = "";
 
-        fetch(`http://localhost:8080/`)
+        fetch(`http://localhost:8080/${category}`)
         .then(response => response.json())
         .then(data => {
             data.forEach((question, index) => {
@@ -64,6 +77,12 @@ startJava.addEventListener("click", () => {
         })
         .catch(error => console.error("Błąd:", error));
     }// === END Wczytanie quizu ===
+        // === Kategorie ===
+        function showCategory(category) {
+            if (category === "java") document.getElementById("text_category").innerText = "Java";
+            if (category === "sql") document.getElementById("text_category").innerText = "Bazy danych";
+        }// === END Kategorie ===
+
         // === Pojedyncze pytanie ===
         function createQuestionBlock(question, index) {
             const block = document.createElement("div");
@@ -71,7 +90,7 @@ startJava.addEventListener("click", () => {
             block.setAttribute("data-id", question.id);
 
             const p = document.createElement("p");
-            p.innerText = `${index + 1}. ${question.question_text}`;
+            p.innerHTML = `${index + 1}. ${question.question_text}`;
             p.classList.add("question-title");
             block.appendChild(p);
 
@@ -154,7 +173,7 @@ checkAnswers.addEventListener("click", () => {
         const resultBlock = document.getElementById("result");
         resultBlock.style.display = "block";
         document.getElementById("result-text").innerText = 
-            `Uzyskany wynik: ${result.percent.toFixed(1)}% (${result.correctCount}/${result.totalQuestions})`;
+            `Uzyskany wynik: ${result.percent.toFixed(1)}% (${result.correctCount}/40)`;
         
         if (result.passed) {
             resultBlock.style.backgroundColor = "green";
@@ -205,15 +224,15 @@ wyniki.addEventListener("click", () => {
     const tiles = document.getElementById('tiles');
     const results = document.getElementById('results_users');
 
-    const isResultVisible = results.style.display === "block";
+    const isResultVisible = results.style.display === "flex";
 
     if (isResultVisible) {
         results.style.display = "none";
-        tiles.style.display = "block";
+        tiles.style.display = "flex";
         wyniki.textContent = "Sprawdź wyniki";
     } else {
         tiles.style.display = "none";
-        results.style.display = "block";
+        results.style.display = "flex";
         wyniki.textContent = "Ukryj wyniki";
         result_db();
     }
@@ -231,7 +250,6 @@ wyniki.addEventListener("click", () => {
 
             let count = 1;
             data.forEach(result => {
-                const p = document.createElement("p");
                 const item = document.createElement("div");
                 const date = new Date(result.dateTime);
                 const formatted = date.toLocaleString("pl-PL", {
@@ -240,7 +258,7 @@ wyniki.addEventListener("click", () => {
                     day: "2-digit",
                 });
 
-                item.textContent = `${count++}. Data: ${formatted} | Wynik: ${result.percent}% | Poprawne: ${result.correctCount}/${result.totalQuestions} | ${result.passed ? "ZALICZONE" : "NIEZALICZONE"}`;
+                item.textContent = `${count++}. Wynik: ${result.percent}% (${result.correctCount}/${result.totalQuestions}) | ${result.passed ? "ZALICZONE" : "NIEZALICZONE"} | ${formatted}`;
                 item.classList.add("result-item");
                 item.style.backgroundColor = result.passed ? "green" : "red";
 
@@ -250,3 +268,24 @@ wyniki.addEventListener("click", () => {
         .catch(error => console.error("Błąd:", error));
     }
     // === END Wyniki funkcja ===
+
+// === Ilosc pytan ===
+fetch("http://localhost:8080/question_count")
+.then(response => response.json())
+.then(count => {
+    document.getElementById('question_count').textContent = `${count}`;
+})
+.catch(error => console.error("Błąd:", error));
+fetch("http://localhost:8080/count_java")
+.then(response => response.json())
+.then(count => {
+    document.getElementById('count_java').textContent = `${count}`;
+})
+.catch(error => console.error("Błąd:", error));
+fetch("http://localhost:8080/count_sql")
+.then(response => response.json())
+.then(count => {
+    document.getElementById('count_sql').textContent = `${count}`;
+})
+.catch(error => console.error("Błąd:", error));
+// === END Ilosc pytan ===

@@ -1,6 +1,5 @@
 package pl.walas.quiz.dto;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 public class ResultDTO {
@@ -11,6 +10,7 @@ public class ResultDTO {
     private Long userId;
     private Long quizId;
     private List<QuestionResultDTO> questionResults;
+    private String category;
 
     public ResultDTO() {}
 
@@ -35,6 +35,9 @@ public class ResultDTO {
     public List<QuestionResultDTO> getQuestionResults() {
         return questionResults;
     }
+    public String getCategory() {
+        return category;
+    }
 
     public void setCorrectCount(int correctCount) {
         this.correctCount = correctCount;
@@ -56,5 +59,8 @@ public class ResultDTO {
     }
     public void setQuestionResults(List<QuestionResultDTO> questionResults) {
         this.questionResults = questionResults;
+    }
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

@@ -51,14 +51,13 @@ public class QuizService {
             }
         }
 
-        int totalQuestions = questions.size();
-        double percent = ((double) correctCount / totalQuestions) * 100;
+        double percent = ((double) correctCount / 40) * 100;
         boolean passed = percent >= 75;
 
         ResultDTO resultDTO = new ResultDTO();
         resultDTO.setUserId(user.getId());
         resultDTO.setCorrectCount(correctCount);
-        resultDTO.setTotalQuestions(totalQuestions);
+        resultDTO.setTotalQuestions(40);
         resultDTO.setPercent(percent);
         resultDTO.setPassed(passed);
         resultDTO.setQuestionResults(questionResults);
@@ -66,7 +65,7 @@ public class QuizService {
         Result resultEntity = new Result();
         resultEntity.setUser(user);
         resultEntity.setCorrectCount(correctCount);
-        resultEntity.setTotalQuestions(totalQuestions);
+        resultEntity.setTotalQuestions(40);
         resultEntity.setPercent(percent);
         resultEntity.setPassed(passed);
         resultEntity.setDateTime(LocalDateTime.now());
